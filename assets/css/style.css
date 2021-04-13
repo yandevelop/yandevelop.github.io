@@ -28,7 +28,7 @@ h1 {
 
 .main-ct {
     background-color:rgb(255, 255, 255);
-    padding: 0;
+    padding: 1px;
     align-content: center;
     height: auto;
 }
