@@ -12,6 +12,7 @@ SHA256: 98790bb9245d8510539dbc59946efcac29716c95870361796a48a63da5951631
 Section: Tweaks
 Description: Locks the hidden photos section, just as how it should be.
 Author: yan
+Homepage: https://yandevelop.github.io/yan.github.io/
 Depiction: https://yandevelop.github.io/yan.github.io/depics/HiddenLock14/index.html
 Name: HiddenLock14
 
