@@ -6,7 +6,7 @@ html, body {
     font-weight: 300;
     margin: 0;
     padding: 0;
-    height: 10%;
+    height: 40%;
     Max-width: 100vw;
 }
 
@@ -60,7 +60,7 @@ h1 {
 
 .prv {
     width: auto;
-    height: auto;
+    height: 300px;
     padding: 2rem;
     background: rgb(255, 255, 255);
     background: radial-gradient(circle, rgba(126,126,126,1) 0%, rgba(86,77,173,1) 49%, rgba(75,78,207,1) 100%);
