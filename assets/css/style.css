@@ -61,7 +61,7 @@ h1 {
 
 .prv {
     width: auto;
-    height: 300px;
+    height: auto;
     padding: 2rem;
     background: rgb(255, 255, 255);
     background: radial-gradient(circle, rgba(126,126,126,1) 0%, rgba(86,77,173,1) 49%, rgba(75,78,207,1) 100%);
