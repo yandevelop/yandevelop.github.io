@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,800;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap');
+
+html, body {
+    font-family: Montserrat, sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+h1 {
+    font-family: Poppins, sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-weight: 700;
+    color: white;
+    margin-top: 0px;
+}
+
+.title {
+    background: rgb(69, 8, 235);
+    align-content: center;
+}
+
+.main-ct {
+    background-color:rgb(255, 255, 255);
+    padding: 0;
+    align-content: center;
+    height: auto;
+}
+
+.main-ct h2 {
+    font-size: 23.2px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.ct-title {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1px;
+}
+
+.main-ct p {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.description {
+    width: 90%;
+    margin: auto;
+    padding: 0;
+}
+
+.prv {
+    width: auto;
+    height: 70%;
+    padding: 2rem;
+    background: rgb(255, 255, 255);
+    background: radial-gradient(circle, rgba(126,126,126,1) 0%, rgba(86,77,173,1) 49%, rgba(75,78,207,1) 100%);
+}
+
+.prv-content {
+    width: 70%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.8rem;
+    text-align: center;
+}
+
+.prv-content img {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
