@@ -22,7 +22,8 @@ h1 {
 }
 
 .title {
-    background: rgb(69, 8, 235);
+    background: rgb(0,212,255);
+    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(249,96,255,1) 100%);
     align-content: center;
 }
 
