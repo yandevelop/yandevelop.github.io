@@ -4,7 +4,7 @@
             "class": "DepictionStackView",
             "tabname": "Overview",
             "views": [{
-                    "itemCornerRadius": 4,
+                    "itemCornerRadius": 80,
                     "class": "DepictionScreenshotsView",
                     "itemSize": "{160, 275.41333333333336}",
                     "screenshots": [
