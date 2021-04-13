@@ -70,5 +70,6 @@
         }
     ],
     "backgroundColor": "#37a2d4",
+    "tintColor": "#696969",
     "minVersion": "0.1"
 }
