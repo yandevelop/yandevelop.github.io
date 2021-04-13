@@ -1,19 +1,19 @@
 Package: com.yan.hiddenlock14
-Version: 1.0-3+debug
+Version: 1.0
 Architecture: iphoneos-arm
 Maintainer: yan
-Installed-Size: 156
+Installed-Size: 172
 Depends: mobilesubstrate (>= 0.9.5000)
-Filename: ./debs/com.yan.hiddenlock14_1.0-3+debug_iphoneos-arm.deb
-Size: 6306
-MD5sum: 3bdae176262bc7c09931264374981ad1
-SHA1: e7454a6017b09e9a89729cb3b6fa2ba050494bfc
-SHA256: 4da363a940c15abfdafe4315b0cb1cbdca955cf9ceb055676762c62f987600ba
+Filename: ./debs/com.yan.hiddenlock14_1.0_iphoneos-arm.deb
+Size: 6352
+MD5sum: f68449417f37746acb1f8eda5e6da6e8
+SHA1: d53b15e7c880422c7ef6f70291419042ea5a12d3
+SHA256: 52fdacbaad2558aed28cdf22f45258c0e73b382cb1c77f591e2c1378e23e2a9b
 Section: Tweaks
 Description: Locks the hidden photos section, just as how it should be.
 Author: yan
-Depiction: https://yandevelop.github.io/yan.github.io/depic/HiddenLock14/index.html
-Icon: https://yandevelop.github.io/yan.github.io/assets/icons/hl14/icon.png
+Depiction: https://yandevelop.github.io/depic/HiddenLock14/index.html
+Icon: https://yandevelop.github.io/assets/icons/hl14/icon.png
 Name: HiddenLock14
-Sileodepiction: https://yandevelop.github.io/yan.github.io/depic/HiddenLock14/hl14dp.json
+Sileodepiction: https://yandevelop.github.io/depic/HiddenLock14/hl14dp.json
 
