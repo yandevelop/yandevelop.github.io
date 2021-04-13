@@ -4,7 +4,7 @@
             "class": "DepictionStackView",
             "tabname": "Overview",
             "views": [{
-                    "itemCornerRadius": 80,
+                    "itemCornerRadius": 4,
                     "class": "DepictionScreenshotsView",
                     "itemSize": "{160, 275.41333333333336}",
                     "screenshots": [
@@ -16,7 +16,7 @@
                 },
                 {
                     "class": "DepictionSpacerView",
-                    "spacing": 8
+                    "spacing": 9
                 },
                 {   
                     "class": "DepictionHeaderView",
@@ -52,7 +52,7 @@
                 },
                 {
                     "class": "DepictionSpacerView",
-                    "spacing": 8
+                    "spacing": 9
                 },
                 {
                     "class": "DepictionTableButtonView",
@@ -64,7 +64,7 @@
                 },
                 {
                     "class": "DepictionSpacerView",
-                    "spacing": 8
+                    "spacing": 9
                 }
             ]
         }
