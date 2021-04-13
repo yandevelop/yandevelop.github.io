@@ -1,27 +1,95 @@
-<html lang="en"><head>
-  <title>yan</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-    </style>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="urf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<header>
+  <div class="head">
+    <div class="head-h">
+    <h1>yan's repository</h1>
+    </div>
+    <div class="head-d">
+    <p>Add this repository to your package manager</p>
+    </div>
+    </div>
+</header>
 
-<div class="container">
-	<h1><img src="CydiaIcon.png"> yan's repository</h1>
-  <style>html, * {font-family: Poppins, sans-serif;}</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800;900&display=swap');
+  
+html, * {
+  font-family: Poppins, sans-serif;
+  padding: 0;
+  margin: 0;
+  background: rgb(101,182,242);
+  background: linear-gradient(90deg, rgba(101,182,242,1) 0%, rgba(62,228,158,1) 49%, rgba(42,215,230,1) 100%); 
+}
+
+body {
+  margin-top: 20rem;
+}
+
+.head-h {
+  color: white;
+  font-weight: 900;
+}
+
+.head {
+  text-align: center;
+}
+
+.head-d {
+  font-weight: 300;
+  color: white;
+  padding-top: 0;
+}
+
+.btns {
+  width: auto;
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-sileo {
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-top: 1.4rem;
+  font-size: 18px;
+  text-decoration: none;
+  background: #00d9ff;
+  width: 130px;
+  padding: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+  margin-right: 3rem;
+}
+
+.btn-sileo:hover, .btn-sileo:focus, .btn-sileo:active {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+</style>
+
+
+<div class="btns">
+  <a href="sileo://source/https://yandevelop.github.io/yan.github.io/" class="btn-sileo">Sileo</a>
+  <a href="zbra://sources/https://yandevelop.github.io/yan.github.io/" class="btn-sileo">Zebra</a>
+  <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://yandevelop.github.io/yan.github.io/" class="btn-sileo">Cydia</a>
 </div>
 
-<div class="container">
-	<div class="card">
-		<div class="card-body">
-			<p><span class="text-primary"><b>yan</b></span> is a repository.</p>
-			<a class="btn btn-sm btn-primary" href="cydia://url/https://cydia.saurik.com/api/share#?source=https://github.com/yandevelop/yan.github.io">Add to Cydia</a>
-		</div>
-	</div>
-</div>
-
-
-
-</body></html>
+</body>
+</html>
