@@ -70,6 +70,5 @@
         }
     ],
 	"headerImage": "https://yandevelop.github.io/assets/icons/hl14/banner.png",
-    "tintColor": "#ffffff",
     "minVersion": "0.1"
 }
