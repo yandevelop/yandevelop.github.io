@@ -1,14 +1,14 @@
 Package: com.yan.hiddenlock14
-Version: 1.0-27+debug
+Version: 1.0
 Architecture: iphoneos-arm
 Maintainer: yan
 Installed-Size: 172
 Depends: mobilesubstrate (>= 0.9.5000)
-Filename: ./debs/com.yan.hiddenlock14_1.0-27+debug_iphoneos-arm.deb
-Size: 6210
-MD5sum: b90468dd1d877cc7d37cecbd48d5b68f
-SHA1: aedcd763a20ddbc572fb8eef5dcfe1e8b48b7407
-SHA256: a0711f0782e76789e710ae8f3ca6c8364a282a69e82b9343760f12debc9aaa02
+Filename: ./debs/com.yan.hiddenlock14_1.0_iphoneos-arm.deb
+Size: 6200
+MD5sum: 2199e997e61695ac860c777f59687a87
+SHA1: 200d5942f0e55d793329eafc84c0a9d1b5e4c421
+SHA256: 9b17fd12373a3abd615139d67a379a1865b6a4b034f4aabff52e4c186c118c09
 Section: Tweaks
 Description: Locks the hidden photos section, just as how it should be.
 Author: yan
