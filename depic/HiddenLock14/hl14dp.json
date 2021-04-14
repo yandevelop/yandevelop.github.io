@@ -37,7 +37,7 @@
                 },
                 {
                     "title": "Version",
-                    "text": "1.0",
+                    "text": "1.0.1",
                     "class": "DepictionTableTextView"
                 },
                 {   
@@ -69,6 +69,6 @@
             ]
         }
     ],
-	"headerImage": "https://yandevelop.github.io/assets/icons/hl14/banner.png",
+    "headerImage": "https://yandevelop.github.io/assets/icons/hl14/banner.png",
     "minVersion": "0.1"
 }
