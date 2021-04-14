@@ -23,11 +23,12 @@ Architecture: iphoneos-arm
 Maintainer: yan
 Installed-Size: 172
 Depends: mobilesubstrate (>= 0.9.5000)
+Conflicts: com.miro.shortmoji2, com.miro.shortmoji
 Filename: ./debs/com.yan.hiddenlock14_1.0.1_iphoneos-arm.deb
-Size: 6560
-MD5sum: 9562e1e0ba976ff50aae3cae422cf017
-SHA1: 3acc15d90cca1f1e50ec4f1a452552e0633badbe
-SHA256: 465f2bee65800866342464f60507d86e110046df288aea71fcf1725f5e773f46
+Size: 6576
+MD5sum: ca950b7c613f79c5b8969105604e549b
+SHA1: 3629afea776ff8bf13b0689cc7f88017a82d7b51
+SHA256: cb59b2d4be383f63406ac997fedb02e8223b77e11e08ab75b2764eb4e2e6eba9
 Section: Tweaks
 Description: Locks the hidden photos section, just as how it should be.
 Author: yan
