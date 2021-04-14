@@ -1,1 +1,1 @@
-yan.github.io
+yan
