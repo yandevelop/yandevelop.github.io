@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>yan's repository</title>
 <link rel="icon" href="https://yandevelop.github.io/assets/icons/favicon.ico" type="image/x-icon"/>
 <link rel="shortcut icon" href="https://yandevelop.github.io/assets/icons/favicon.ico" type="image/x-icon"/>
 <meta charset="urf-8">
@@ -10,14 +9,17 @@
 <body>
 <header>
   <div class="head">
+    <div class="icon">
+      <img src="CydiaIcon.png" alt="icon">
+    </div>
     <div class="head-h">
     <h1>yan's repository</h1>
     </div>
     <div class="head-d">
-    <p>Add this repository to your package manager</p>
+    <p>Add this repository  to your package manager</p>
     </div>
     </div>
-</header>
+  </header>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800;900&display=swap');
@@ -26,12 +28,23 @@ html, * {
   font-family: Poppins, sans-serif;
   padding: 0;
   margin: 0;
-  background: rgb(101,182,242);
-  background: linear-gradient(90deg, rgba(101,182,242,1) 0%, rgba(62,228,158,1) 49%, rgba(42,215,230,1) 100%); 
 }
 
 body {
-  margin-top: 10rem;
+  background: rgb(181,247,254);
+  background: linear-gradient(270deg, rgba(126,217,255,1) 0%, rgba(43,197,209,1) 50%, rgba(0,162,255,1) 100%); 
+  margin-top: 5rem;
+}
+
+.icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.icon img {
+  border-radius: 25%;
 }
 
 .head-h {
@@ -47,6 +60,9 @@ body {
   font-weight: 300;
   color: white;
   padding-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
 }
 
 .btns {
@@ -82,18 +98,90 @@ body {
 }
 
 .btn-sileo:hover, .btn-sileo:focus, .btn-sileo:active {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(83, 249, 255, 0.575);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
+.tweaks {
+  align-items: center;
+  color: #fff;
+  margin: 3.2rem;
+  text-align: center;
+}
+
+.tweaks img {
+  display: block;
+  max-width: 80%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.tweaks p {
+  font-size: 16px;
+}
+
+.hlimg {
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+}
+
+.version {
+  padding-top: 0.5rem;
+}
+
+.hl14p {
+  align-items: center;
+}
+
+@media screen and (min-width:750px) {
+  .tweaks img {
+    max-width: 45%;
+  }
+}
+
+@media screen and (max-width:300px) {
+  .body {
+    margin-top: 0px;
+  }
+
+  .head-h {
+    font-size: 10px;
+  }
+
+  .head-d {
+    font-size: 10px;
+  }
+
+  .btn-sileo {
+    font-size: 12px;
+  }
+}
+
 </style>
-
-
 <div class="btns">
   <a href="sileo://source/https://yandevelop.github.io/" class="btn-sileo">Sileo</a>
   <a href="zbra://sources/add/https://yandevelop.github.io/" class="btn-sileo">Zebra</a>
   <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://yandevelop.github.io/" class="btn-sileo">Cydia</a>
+</div>
+
+<div class="tweaks">
+  <h1>Tweaks</h1>
+    <div class="HL14">
+      <h2>HiddenLock14</h2>
+        <div class="hlimg">
+          <img src="/assets/imgs/HiddenLock14t.png" alt="DepictionPicture">
+        </div>
+          <div class="hl14p">
+            <p>Adds an additional layer of FaceID Authentication to the hidden album.</p>
+          </div>
+           <div class="version">
+            <h4>Version: 1.1</h4>
+          </div>
+    </div>
 </div>
 
 </body>
