@@ -22,8 +22,8 @@ h1 {
 }
 
 .title {
-    background: rgb(0,212,255);
-    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(249,96,255,1) 100%);
+    background: rgb(114,255,190);
+    background: linear-gradient(135deg, rgba(114,255,190,1) 0%, rgba(48,255,247,1) 50%, rgba(125,208,255,1) 100%); 
     align-content: center;
 }
 
@@ -56,17 +56,24 @@ h1 {
 }
 
 .description {
-    width: 90%;
+    width: 84%;
     margin: auto;
     padding: 0;
+}
+
+.version-h {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
 }
 
 .prv {
     width: auto;
     height: auto;
     /*padding: 2rem;*/
-    background: rgb(255, 255, 255);
-    background: radial-gradient(circle, rgba(126,126,126,1) 0%, rgba(86,77,173,1) 49%, rgba(75,78,207,1) 100%);
+    background: rgb(158,227,255);
+    background: linear-gradient(45deg, rgba(158,227,255,1) 0%, rgba(40,218,237,1) 52%, rgba(0,162,255,1) 100%); 
 }
 
 .prv-content {
