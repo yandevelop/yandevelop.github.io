@@ -60,6 +60,11 @@
                     "action": "https://twitter.com/yandevelop"
                 },
                 {
+                    "class": "DepictionTableButtonView",
+                    "title": "Donate",
+                    "action": "https://paypal.me/yandevelop"
+                },
+                {
                     "class": "DepictionSpacerView",
                     "spacing": 9
                 }
