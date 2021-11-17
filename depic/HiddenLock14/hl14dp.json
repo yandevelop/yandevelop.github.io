@@ -25,7 +25,7 @@
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "Face ID authentication for hidden album"
+                    "markdown": "Biometric authentication for the hidden album in Photos."
                 },
                 {
                     "class": "DepictionSeparatorView"
@@ -36,14 +36,14 @@
                     "useBoldText": true
                 },
                 {
-                    "title": "Version",
-                    "text": "1.0.1",
+                    "title": "Latest Version",
+                    "text": "1.1",
                     "class": "DepictionTableTextView"
                 },
                 {   
                     "class": "DepictionTableTextView",
                     "title": "Compatibility",
-                    "text": "iOS 13 - 14.3"
+                    "text": "iOS 13 - 14.5"
                 },
                 {   
                     "class": "DepictionTableTextView",
@@ -57,10 +57,12 @@
                 {
                     "class": "DepictionTableButtonView",
                     "title": "Follow me on Twitter",
-                    "action": "https://twitter.com/yzbeats"
+                    "action": "https://twitter.com/yandevelop"
                 },
                 {
-                    "class": "DepictionSeparatorView"
+                    "class": "DepictionTableButtonView",
+                    "title": "Donate to me",
+                    "action": "https://paypal.com/yandevelop"
                 },
                 {
                     "class": "DepictionSpacerView",
