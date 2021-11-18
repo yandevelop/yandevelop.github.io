@@ -61,8 +61,8 @@
                 },
                 {
                     "class": "DepictionTableButtonView",
-                    "title": "Donate to me",
-                    "action": "https://paypal.com/yandevelop"
+                    "title": "Donate",
+                    "action": "https://paypal.me/yandevelop"
                 },
                 {
                     "class": "DepictionSpacerView",
