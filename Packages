@@ -82,10 +82,10 @@ Maintainer: yan
 Installed-Size: 1004
 Depends: mobilesubstrate (>= 0.9.5000), ws.hbang.common (>= 1.2)
 Filename: ./debs/com.yan.hiddenlock14_1.1.2_iphoneos-arm.deb
-Size: 419930
-MD5sum: 5cde2765289f7ea22dedf0e709682f82
-SHA1: a9e45a56d7ed5e8cc140a529c40c647a03fb5e04
-SHA256: 3fa5cc35bf79328016b7dccd11a632a4897970ccbdccaf181f3cac3a57ef43db
+Size: 420068
+MD5sum: 1b4546f14b1f8335119e93d9818ddc25
+SHA1: 9dacc7cedb478cff3d92aec03286f20b8e853a88
+SHA256: 35254fe125025dad2ffe481b70eb467b6f5975764f9040e4b115822181f5ca1e
 Section: Tweaks
 Description: Adds an authentication layer to the hidden album, just as how it should be.
 Author: yan
