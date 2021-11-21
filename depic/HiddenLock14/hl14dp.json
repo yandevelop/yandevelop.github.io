@@ -65,13 +65,13 @@
                     "action": "https://paypal.me/yandevelop"
                 },
                 {
-                    "class": "DepictionSpacerView",
-                    "spacing": 9
-                },
-                {
                     "class": "DepictionTableButtonView",
                     "title": "Changelog",
                     "action": "https://yandevelop.github.io/depic/HiddenLock14/changelog.html"
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 9
                 }
             ]
         }
