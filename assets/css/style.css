@@ -32,6 +32,7 @@ h1 {
     padding: 1px;
     align-content: center;
     height: auto;
+    text-align: center;
 }
 
 .main-ct h2 {
@@ -91,4 +92,67 @@ h1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.changelog {
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    display: block;
+}
+
+.changelog-d {
+    width: 55%;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.changelog-d h4 {
+    padding: 0;
+    margin: 0;
+}
+
+.changelog p {
+    padding: 0;
+    width: 100%;
+    display: block;
+}
+
+.button {
+    margin: 2rem;
+    padding: 0;
+
+}
+
+.button a {
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin: 20px;
+    font-size: 17px;
+    text-decoration: none;
+    background: #00d9ff;
+    width: 130px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.changelog-full {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 }
