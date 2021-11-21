@@ -103,7 +103,7 @@ h1 {
 }
 
 .changelog-d {
-    width: 55%;
+    width: 65%;
     align-items: center;
     text-align: center;
     margin-left: auto;
@@ -122,19 +122,18 @@ h1 {
 }
 
 .button {
-    margin: 2rem;
-    padding: 0;
-
+    margin: 1.5rem;
+    padding: 10px;
 }
 
 .button a {
     font-weight: 700;
     letter-spacing: 1.5px;
     margin: 20px;
-    font-size: 17px;
+    font-size: 12px;
     text-decoration: none;
     background: #00d9ff;
-    width: 130px;
+    width: 110px;
     padding: 10px;
     text-align: center;
     text-transform: uppercase;
