@@ -1,3 +1,5 @@
+<!-- Snow animation from https://github.com/hyperstown/puresnowjs -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,8 +7,10 @@
 <link rel="shortcut icon" href="https://yandevelop.github.io/assets/icons/favicon.ico" type="image/x-icon"/>
 <meta charset="urf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="assets/js/snow.js" defer></script>
 </head>
 <body>
+  <div id="snow"></div>
 <header>
   <div class="head">
     <div class="icon">
@@ -20,7 +24,6 @@
     </div>
     </div>
   </header>
-
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800;900&display=swap');
   
@@ -30,10 +33,20 @@ html, * {
   margin: 0;
 }
 
+.snowflake {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(white, white);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 2px white);
+  z-index: -1;
+}
+
 body {
-  background: rgb(181,247,254);
   background: linear-gradient(270deg, rgba(126,217,255,1) 0%, rgba(43,197,209,1) 50%, rgba(0,162,255,1) 100%); 
   margin-top: 5rem;
+  color: white;
 }
 
 .icon {
@@ -45,6 +58,9 @@ body {
 
 .icon img {
   border-radius: 25%;
+  box-shadow: 1px 15px 43px -13px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 1px 15px 43px -13px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 15px 43px -13px rgba(0,0,0,0.75);
 }
 
 .head-h {
@@ -98,12 +114,13 @@ body {
 }
 
 .btn-sileo:hover, .btn-sileo:focus, .btn-sileo:active {
-  box-shadow: 0 0 20px rgba(83, 249, 255, 0.575);
+  box-shadow: 0 0 2px rgba(83, 249, 255, 0.575);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
 .tweaks {
+  margin: auto;
   align-items: center;
   color: #fff;
   margin: 3.2rem;
@@ -111,36 +128,38 @@ body {
 }
 
 .tweaks img {
-  display: block;
-  max-width: 80%;
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto 0 auto;
   height: auto;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .tweaks p {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
-.hlimg {
-  align-items: center;
-  margin-right: auto;
-  margin-left: auto;
-  width: 80%;
+.tweaks h1 {
+  font-size: 2rem;
+}
+
+.tweak-img {
+  margin: auto;
+}
+
+.tweak-section {
+  width: 100%;
+}
+
+.tweak-section h2 {
+  font-size: 1.7rem;
 }
 
 .version {
   padding-top: 0.5rem;
 }
 
-.hl14p {
+.description {
   align-items: center;
-}
-
-@media screen and (min-width:750px) {
-  .tweaks img {
-    max-width: 45%;
-  }
 }
 
 @media screen and (max-width:300px) {
@@ -170,12 +189,24 @@ body {
 
 <div class="tweaks">
   <h1>Tweaks</h1>
-    <div class="HL14">
+  <div class="tweak-section">
+    <h2>Stella</h2>
+    <div class="tweak-img">
+        <img src="" alt="Depiction picture of tweak Stella">
+    </div>
+    <div class="description">
+      <p>Let it snow on your iPhone</p>
+    </div>
+    <div class="version">
+      <h4>Version: 1.0</h4>
+    </div>
+  </div>
+    <div class="tweak-section">
       <h2>HiddenLock14</h2>
-        <div class="hlimg">
-          <img src="/assets/imgs/HiddenLock14t.png" alt="DepictionPicture">
+        <div class="tweak-img">
+          <img src="/assets/imgs/HiddenLock14t.png" alt="Depiction picture of tweak HiddenLock14">
         </div>
-          <div class="hl14p">
+          <div class="description">
             <p>Adds an additional layer of FaceID Authentication to the hidden album.</p>
           </div>
            <div class="version">
@@ -183,6 +214,5 @@ body {
           </div>
     </div>
 </div>
-
 </body>
 </html>
