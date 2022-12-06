@@ -1,0 +1,81 @@
+{
+    "class": "DepictionTabView",
+    "tabs": [{
+            "class": "DepictionStackView",
+            "tabname": "Overview",
+            "views": [{
+                    "itemCornerRadius": 4,
+                    "class": "DepictionScreenshotsView",
+                    "itemSize": "{160, 275.41333333333336}",
+                    "screenshots": [
+                        {
+                            "accessibilityText": "Stella",
+                            "url": "https://yandevelop.github.io/assets/imgs/StellaPreview.png"
+                        }
+                    ]
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 9
+                },
+                {   
+                    "class": "DepictionHeaderView",
+                    "title": "Description",
+                    "useBoldText": true
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "Let it snow on your home - & lockscreen"
+                },
+                {
+                    "class": "DepictionSeparatorView"
+                },
+                {   
+                    "class": "DepictionHeaderView",
+                    "title": "Details",
+                    "useBoldText": true
+                },
+                {
+                    "title": "Latest Version",
+                    "text": "1.0",
+                    "class": "DepictionTableTextView"
+                },
+                {   
+                    "class": "DepictionTableTextView",
+                    "title": "Compatibility",
+                    "text": "iOS 13 - 15.7.1"
+                },
+                {   
+                    "class": "DepictionTableTextView",
+                    "title": "Supported devices",
+                    "text": "iPhone, iPad"
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 9
+                },
+                {
+                    "class": "DepictionTableButtonView",
+                    "title": "Follow me on Twitter",
+                    "action": "https://twitter.com/yandevelop"
+                },
+                {
+                    "class": "DepictionTableButtonView",
+                    "title": "Donate",
+                    "action": "https://paypal.me/JanSchweikert04"
+                },
+                {
+                    "class": "DepictionTableButtonView",
+                    "title": "Changelog",
+                    "action": "https://yandevelop.github.io/depic/Stella/changelog.html"
+                },
+                {
+                    "class": "DepictionSpacerView",
+                    "spacing": 9
+                }
+            ]
+        }
+    ],
+    "headerImage": "https://yandevelop.github.io/assets/icons/Stella/banner.png",
+    "minVersion": "0.1"
+}
