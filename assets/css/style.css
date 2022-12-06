@@ -91,8 +91,8 @@ h1 {
 }
 
 .title-stella {
-    background: rgb(186,222,219);
-    background: linear-gradient(135deg, rgba(186,222,219,1) 18%, rgba(237,233,185,1) 76%);
+    background: rgb(194,230,227);
+    background: linear-gradient(135deg, rgba(194,230,227,1) 50%, rgba(237,233,185,1) 100%);
     align-content: center;
 }
 
