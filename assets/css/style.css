@@ -233,6 +233,34 @@ h1 {
     margin-right: auto;
 }
 
+.button-stella {
+    margin: 1.3rem;
+    padding: 8px;
+}
+
+.button-stella a {
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin: 20px;
+    font-size: 12px;
+    text-decoration: none;
+    background: #97d7bf;
+    width: 110px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .changelog-full {
     text-align: center;
     margin-left: auto;
