@@ -1,5 +1,6 @@
 {
     "class": "DepictionTabView",
+    "headerImage": "https://yandevelop.github.io/assets/imgs/StellaPreview.png",
     "tabs": [{
             "class": "DepictionStackView",
             "tabname": "Overview",
