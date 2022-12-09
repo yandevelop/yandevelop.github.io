@@ -113,3 +113,22 @@ Icon: https://yandevelop.github.io/assets/icons/hl14/icon.png
 Name: HiddenLock14
 Sileodepiction: https://yandevelop.github.io/depic/HiddenLock14/hl14dp.json
 
+Package: com.yan.stella
+Version: 1.0
+Architecture: iphoneos-arm
+Maintainer: yan
+Installed-Size: 996
+Depends: mobilesubstrate (>= 0.9.5000), com.mrgcgamer.libgcuniversal, firmware (>= 13.0), ws.hbang.common (>= 1.2)
+Filename: ./debs/com.yan.stella_1.0_iphoneos-arm.deb
+Size: 666216
+MD5sum: c2394464871f79fb4969c65c8d6e47a8
+SHA1: cbe565e6ae425ccc471a47be3eeb7f3fc8b6b25e
+SHA256: 550922452bb7aedda9f7a25bf82f61115778fcf71812abf0559efa26eff5ca34
+Section: Tweaks
+Description: Let it snow on your device
+Author: yan
+Depiction: https://yandevelop.github.io/depic/Stella/index.html
+Icon: https://yandevelop.github.io/assets/icons/stella/icon.png
+Name: Stella
+Sileodepiction: https://yandevelop.github.io/depic/Stella/StellaDepiction.json
+
