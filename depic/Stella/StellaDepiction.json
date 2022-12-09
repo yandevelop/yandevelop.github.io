@@ -10,7 +10,7 @@
                     "screenshots": [
                         {
                             "accessibilityText": "Stella",
-                            "url": "https://yandevelop.github.io/assets/imgs/StellaPreview.png"
+                            "url": "https://yandevelop.github.io/assets/imgs/Stella-t.png"
                         }
                     ]
                 },
@@ -25,7 +25,7 @@
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "Let it snow on your home - & lockscreen"
+                    "markdown": "Let it snow on your home -& lockscreen"
                 },
                 {
                     "class": "DepictionSeparatorView"
@@ -43,7 +43,7 @@
                 {   
                     "class": "DepictionTableTextView",
                     "title": "Compatibility",
-                    "text": "iOS 13 - 15.7.1"
+                    "text": "iOS 13 - 14.8.1"
                 },
                 {   
                     "class": "DepictionTableTextView",
