@@ -132,3 +132,22 @@ Icon: https://yandevelop.github.io/assets/icons/stella/icon.png
 Name: Stella
 Sileodepiction: https://yandevelop.github.io/depic/Stella/StellaDepiction.json
 
+Package: com.yan.stella
+Version: 1.0.1
+Architecture: iphoneos-arm
+Maintainer: yan
+Installed-Size: 996
+Depends: mobilesubstrate (>= 0.9.5000), com.mrgcgamer.libgcuniversal, firmware (>= 13.0), ws.hbang.common (>= 1.2)
+Filename: ./debs/com.yan.stella_1.0.1_iphoneos-arm.deb
+Size: 667600
+MD5sum: 0c551399132b089c355d666d6c94209b
+SHA1: 646f29e4b998c6acd7799b96e52ae0b05b3a3fc7
+SHA256: 1d2e12af88ddecdb9ba223e6775c8bcee17489aab452d0c9f2a7b3f57b3a0f5c
+Section: Tweaks
+Description: Let it snow on your device
+Author: yan
+Depiction: https://yandevelop.github.io/depic/Stella/index.html
+Icon: https://yandevelop.github.io/assets/icons/stella/icon.png
+Name: Stella
+Sileodepiction: https://yandevelop.github.io/depic/Stella/StellaDepiction.json
+
