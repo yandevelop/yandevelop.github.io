@@ -10,8 +10,20 @@
                     "itemSize": "{160, 275.41333333333336}",
                     "screenshots": [
                         {
-                            "accessibilityText": "Stella",
+                            "accessibilityText": "Stella screenshot",
                             "url": "https://yandevelop.github.io/assets/imgs/Stella-t.png"
+                        },
+                        {
+                            "accessibilityText": "Stella screenshot 2",
+                            "url": "https://yandevelop.github.io/assets/imgs/Stella-t2.png"
+                        },
+                        {
+                            "accessibilityText": "Stella screenshot 3",
+                            "url": "https://yandevelop.github.io/assets/imgs/Stella-t3.png"
+                        },
+                        {
+                            "accessibilityText": "Stella screenshot 4",
+                            "url": "https://yandevelop.github.io/assets/imgs/Stella-t4.png"
                         }
                     ]
                 },
