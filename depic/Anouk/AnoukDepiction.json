@@ -1,5 +1,6 @@
 {
     "class": "DepictionTabView",
+    "headerImage": "https://yandevelop.github.io/assets/imgs/Anouk/banner.png",
     "tabs": [{
             "class": "DepictionStackView",
             "tabname": "Overview",
@@ -9,8 +10,12 @@
                     "itemSize": "{160, 275.41333333333336}",
                     "screenshots": [
                         {
-                            "accessibilityText": "Hiddenlock14",
-                            "url": "https://yandevelop.github.io/assets/imgs/HiddenLock14t.png"
+                            "accessibilityText": "Anouk screenshot",
+                            "url": "https://yandevelop.github.io/assets/imgs/Anouk/AnoukScreen1.png"
+                        },
+                        {
+                            "accessibilityText": "Anouk screenshot 2",
+                            "url": "https://yandevelop.github.io/assets/imgs/Anouk/AnoukScreen2.png"
                         }
                     ]
                 },
@@ -25,7 +30,7 @@
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "Biometric authentication for the hidden album in Photos."
+                    "markdown": "Authentication layer for the hidden album."
                 },
                 {
                     "class": "DepictionSeparatorView"
@@ -37,18 +42,18 @@
                 },
                 {
                     "title": "Latest Version",
-                    "text": "1.1.3",
+                    "text": "1.1",
                     "class": "DepictionTableTextView"
                 },
                 {   
                     "class": "DepictionTableTextView",
                     "title": "Compatibility",
-                    "text": "iOS 13 - 14.5"
+                    "text": "iOS 13 - 16.4.1"
                 },
                 {   
                     "class": "DepictionTableTextView",
                     "title": "Supported Devices",
-                    "text": "iPhone"
+                    "text": "iPhone, iPad"
                 },
                 {
                     "class": "DepictionSpacerView",
@@ -62,12 +67,12 @@
                 {
                     "class": "DepictionTableButtonView",
                     "title": "Donate",
-                    "action": "https://paypal.me/yandevelop"
+                    "action": "https://paypal.me/JanSchweikert04"
                 },
                 {
                     "class": "DepictionTableButtonView",
                     "title": "Changelog",
-                    "action": "https://yandevelop.github.io/depic/HiddenLock14/changelog.html"
+                    "action": "https://yandevelop.github.io/depic/Anouk/changelog.html"
                 },
                 {
                     "class": "DepictionSpacerView",
@@ -76,6 +81,5 @@
             ]
         }
     ],
-    "headerImage": "https://yandevelop.github.io/assets/icons/hl14/banner.png",
     "minVersion": "0.1"
 }

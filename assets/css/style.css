@@ -96,6 +96,12 @@ h1 {
     align-content: center;
 }
 
+.title-anouk {
+    background: rgb(186,231,204);
+    background: linear-gradient(114deg, rgb(255, 147, 241) 50%, rgb(255, 132, 235) 100%);
+    align-content: center;
+}
+
 .main-ct {
     background:rgb(255, 255, 255);
     padding: 1px;
@@ -137,6 +143,11 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     align-content: center;
+}
+
+.prv-anouk {
+    background: rgb(158,227,255);
+    background: linear-gradient(45deg, rgb(255, 26, 205) 0%, rgb(244, 143, 237) 52%, rgb(255, 147, 235) 100%); 
 }
 
 .prv {
@@ -261,9 +272,43 @@ h1 {
     margin-right: auto;
 }
 
+.button-anouk {
+    margin: 1.3rem;
+    padding: 8px;
+}
+
+.button-anouk a {
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin: 20px;
+    font-size: 12px;
+    text-decoration: none;
+    background: #ff80fd;
+    width: 110px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .changelog-full {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     width: 80%;
 }
+
+.changelog-full h4 {
+    font-size: 1.4rem;
+    margin: 1.2rem 0 0 0 ;
+}
+
