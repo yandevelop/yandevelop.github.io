@@ -5,10 +5,10 @@ Maintainer: yan
 Installed-Size: 712
 Depends: mobilesubstrate (>= 0.9.5000)
 Filename: ./debs/com.yan.anouk_1.1.1_iphoneos-arm.deb
-Size: 191316
-MD5sum: 205ce5f22a746d093c900eac3d49369a
-SHA1: 4d2fa60e4a0c3d3979d950af770a1ac08e16b79f
-SHA256: f61f724cc2d9b867b12d363ea42242bbc3847ef3c0223c6a577e756d87056fb5
+Size: 191328
+MD5sum: 6580cc3cb02a581a1b78515a1c84c21f
+SHA1: 124ee32dcc103f7ca90dc2cd3c712dcfa6f5a0e2
+SHA256: 2cedbcb8cef075920def70f9bddf29ba44faa8719436d0a8f4fedd6e6e6eb38a
 Section: Tweaks
 Description: Authentication for the hidden album.
 Author: yan
@@ -24,10 +24,10 @@ Maintainer: yan
 Installed-Size: 712
 Depends: mobilesubstrate (>= 0.9.5000)
 Filename: ./debs/com.yan.anouk_1.1.1_iphoneos-arm64.deb
-Size: 191362
-MD5sum: dba2b1f484f23e7cba4af9aec9e05268
-SHA1: 9e31a7b72c76733254152d62bdeafe72d5201393
-SHA256: dc11aa0a6a430d31568aaf7e70c9f15efecf6058adaa989ecba15e221a9c792d
+Size: 191400
+MD5sum: 399df6a4bd00cac1312b5e6e6cda37b4
+SHA1: 5711d317764fdf3da1c6faf888cfc8263a87a3c9
+SHA256: aab91242e1f61550f3c9ddb0f9480c93ba1028bf0ee93d66ec56b5b58c75415f
 Section: Tweaks
 Description: Authentication for the hidden album.
 Author: yan
