@@ -36,6 +36,44 @@ Icon: https://yandevelop.github.io/assets/icons/anouk/icon.png
 Name: Anouk
 Sileodepiction: https://yandevelop.github.io/depic/Anouk/AnoukDepiction.json
 
+Package: com.yan.anouk
+Version: 1.1.2
+Architecture: iphoneos-arm64
+Maintainer: yan
+Installed-Size: 712
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: ./debs/com.yan.anouk_1.1.2_iphoneos-arm64.deb
+Size: 191374
+MD5sum: 4b70f7a8718630a06f24db48adc9c492
+SHA1: ecf0822d05c1e1d2b1bd1e72a42de2a7f47241c0
+SHA256: 1433469b63a3c72e0bebdb8e338c9f7c27a5502c5557fc8cbc54e8627add1e4d
+Section: Tweaks
+Description: Authentication for the hidden album.
+Author: yan
+Depiction: https://yandevelop.github.io/depic/Anouk/index.html
+Icon: https://yandevelop.github.io/assets/icons/anouk/icon.png
+Name: Anouk
+Sileodepiction: https://yandevelop.github.io/depic/Anouk/AnoukDepiction.json
+
+Package: com.yan.anouk
+Version: 1.1.2
+Architecture: iphoneos-arm
+Maintainer: yan
+Installed-Size: 712
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: ./debs/com.yan.anouk_1.1.2_iphoneos-arm.deb
+Size: 191258
+MD5sum: d9dfe78f76d9620ad7082ef95a36c3eb
+SHA1: b2c0fdb69a3e1083f8852b19bab3068beb856cad
+SHA256: 045df9cf979acfdd8cecd1be0cc681c63778b0096238c20a4c562c22aae3d658
+Section: Tweaks
+Description: Authentication for the hidden album.
+Author: yan
+Depiction: https://yandevelop.github.io/depic/Anouk/index.html
+Icon: https://yandevelop.github.io/assets/icons/anouk/icon.png
+Name: Anouk
+Sileodepiction: https://yandevelop.github.io/depic/Anouk/AnoukDepiction.json
+
 Package: com.yan.fixdisney+
 Version: 1.0
 Architecture: iphoneos-arm64
