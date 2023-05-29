@@ -163,3 +163,41 @@ Icon: https://yandevelop.github.io/assets/icons/stella/icon.png
 Name: Stella
 Sileodepiction: https://yandevelop.github.io/depic/Stella/StellaDepiction.json
 
+Package: com.yan.stella
+Version: 1.0.3
+Architecture: iphoneos-arm
+Maintainer: yan
+Installed-Size: 1032
+Depends: mobilesubstrate (>= 0.9.5000), com.mrgcgamer.libgcuniversal, firmware (>= 13.0), ws.hbang.common (>= 1.2)
+Filename: ./debs/com.yan.stella_1.0.3_iphoneos-arm.deb
+Size: 667408
+MD5sum: 07721457a43dee7f53eb2b94ebd95a2a
+SHA1: 636d4fdf7bde31c3d543f61686a251b7a40bf7ef
+SHA256: 3dfc00a607ed368b32c5d8396092157c74ea4e1df735e9fe0d263f477d73edac
+Section: Tweaks
+Description: Let it snow on your device
+Author: yan
+Depiction: https://yandevelop.github.io/depic/Stella/index.html
+Icon: https://yandevelop.github.io/assets/icons/stella/icon.png
+Name: Stella
+Sileodepiction: https://yandevelop.github.io/depic/Stella/StellaDepiction.json
+
+Package: com.yan.stella
+Version: 1.0.3
+Architecture: iphoneos-arm64
+Maintainer: yan
+Installed-Size: 1032
+Depends: mobilesubstrate (>= 0.9.5000), com.mrgcgamer.libgcuniversal, firmware (>= 13.0), ws.hbang.common (>= 1.2)
+Filename: ./debs/com.yan.stella_1.0.3_iphoneos-arm64.deb
+Size: 667588
+MD5sum: 2d560e9d774e8b31c3d4e5924d680d0d
+SHA1: f0ebe15173afbb4f438b5ea61a1891b73b446f9f
+SHA256: 372095a96581bacd3d219d8437572d8457c5ffd6a706952f0773282f0f6f9e70
+Section: Tweaks
+Description: Let it snow on your device
+Author: yan
+Depiction: https://yandevelop.github.io/depic/Stella/index.html
+Icon: https://yandevelop.github.io/assets/icons/stella/icon.png
+Name: Stella
+Sileodepiction: https://yandevelop.github.io/depic/Stella/StellaDepiction.json
+
