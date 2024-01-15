@@ -11,7 +11,6 @@
 </head>
 <body>
   <div id="snow"></div>
-<header>
   <div class="head">
     <div class="icon">
       <img src="CydiaIcon.png" alt="icon">
@@ -20,10 +19,14 @@
     <h1>yan's repository</h1>
     </div>
     <div class="head-d">
-    <p>Add this repository  to your package manager</p>
+      <p>Add this repository  to your package manager</p>
     </div>
+    <div class="btns">
+      <a href="sileo://source/https://yandevelop.github.io/" class="btn-sileo">Sileo</a>
+      <a href="zbra://sources/add/https://yandevelop.github.io/" class="btn-sileo">Zebra</a>
+      <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://yandevelop.github.io/" class="btn-sileo">Cydia</a>
     </div>
-  </header>
+  </div>
 <style>
 html, * {
   font-family: Montserrat, sans-serif;
@@ -43,7 +46,6 @@ html, * {
 
 body {
   background: linear-gradient(270deg, rgba(126,217,255,1) 0%, rgba(43,197,209,1) 50%, rgba(0,162,255,1) 100%); 
-  margin-top: 5rem;
   color: white;
 }
 
@@ -68,13 +70,18 @@ body {
 }
 
 .head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  min-height: 100vh;
   text-align: center;
 }
 
 .head-d {
   font-weight: 300;
   color: white;
-  padding-top: 0;
+  padding-top: 0.7rem;
   margin-left: auto;
   margin-right: auto;
   width: 90%;
@@ -113,7 +120,7 @@ body {
 }
 
 .btn-sileo:hover, .btn-sileo:focus, .btn-sileo:active {
-  box-shadow: 0 0 2px rgba(83, 249, 255, 0.575);
+  box-shadow: 0 0 2px rgba(83, 249, 255, 0.4);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
@@ -180,13 +187,20 @@ body {
   }
 }
 
-</style>
-<div class="btns">
-  <a href="sileo://source/https://yandevelop.github.io/" class="btn-sileo">Sileo</a>
-  <a href="zbra://sources/add/https://yandevelop.github.io/" class="btn-sileo">Zebra</a>
-  <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://yandevelop.github.io/" class="btn-sileo">Cydia</a>
-</div>
+/* why does thuis not work? */
+@media screen and (max-width: 768px) {
+  .btns {
+    flex-direction: column;
+  }
 
+  .btn-sileo {
+    margin-top: 2rem;
+    width: 300px;
+  }
+}
+
+</style>
+<!--
 <div class="tweaks">
   <h1>Tweaks</h1>
   <div class="tweak-section">
@@ -201,6 +215,6 @@ body {
       <h4>Version: 1.0</h4>
     </div>
   </div>
-</div>
+</div>-->
 </body>
 </html>
