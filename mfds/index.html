@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Table of Contents</title>
+  <link rel="stylesheet" href="/mfds/css/styles.css" />
+  <style>
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+    
+.course-title {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.course-subtitle {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 2em;
+}
+
+.chapter-card {
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s;
+}
+
+.chapter-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.chapter-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+    
+.disclaimer {
+  margin-top: 3em;
+  margin-bottom: 1.5em;
+  padding: 15px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  font-size: 0.95em;
+  color: #606060;
+  transition: box-shadow 0.2s;
+}
+
+.disclaimer:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.disclaimer h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.disclaimer p {
+  margin-bottom: 0.8em;
+}
+
+.disclaimer p:last-child {
+  margin-bottom: 0;
+}
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="nav-container">
+      <div class="nav-title">MFDS</div>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="Introduction/1.0 Chapter 1 - Introduction.html">Introduction</a>
+        <a href="Supervised Learning/2.0 Chapter 2 - Supervised Learning.html">Supervised</a>
+        <a href="Unsupervised Learning/3.0 Chapter 3 - Unsupervised Learning.html">Unsupervised</a>
+      </div>
+    </div>
+  </div>
+
+  <header id="title-block-header">
+    <h1 class="course-title">Mathematical Foundations of Data Science</h1>
+    <p class="course-subtitle">Course Materials and Notes</p>
+  </header>
+
+  <div class="chapter-card">
+    <h2 class="chapter-title">1. Introduction</h2>
+    <p>Fundamentals and basic concepts of data science.</p>
+    <ul>
+      <li><a href="Introduction/1.0 Chapter 1 - Introduction.html" class="wikilink">Chapter Overview</a></li>
+      <li><a href="Introduction/1.0 - What is Data Science/1.0 - What is Data Science.html" class="wikilink">What is Data Science?</a></li>
+      <li><a href="Introduction/1.1 - Linear Regression/1.1 - Linear Regression.html" class="wikilink">Linear Regression</a></li>
+    </ul>
+  </div>
+
+  <div class="chapter-card">
+    <h2 class="chapter-title">2. Supervised Learning</h2>
+    <p>Methods and algorithms for prediction and classification with labeled data.</p>
+    <ul>
+      <li><a href="Supervised Learning/2.0 Chapter 2 - Supervised Learning.html" class="wikilink">Chapter Overview</a></li>
+      <li><a href="Supervised Learning/2.1 Regression/2.1 Regression.html" class="wikilink">Regression Techniques</a></li>
+      <li><a href="Supervised Learning/2.2 Classification/2.2 Classification.html" class="wikilink">Classification Methods</a></li>
+    </ul>
+  </div>
+
+  <div class="chapter-card">
+    <h2 class="chapter-title">3. Unsupervised Learning</h2>
+    <p>Techniques for finding patterns in unlabeled data.</p>
+    <ul>
+      <li><a href="Unsupervised Learning/3.0 Chapter 3 - Unsupervised Learning.html" class="wikilink">Chapter Overview</a></li>
+      <li><a href="Unsupervised Learning/3.1 Principal Component Analysis/3.1 Principal Component Analysis.html" class="wikilink">Principal Component Analysis</a></li>
+      <li><a href="Unsupervised Learning/3.2 Clustering/3.2 Clustering.html" class="wikilink">Clustering Methods</a></li>
+    </ul>
+  </div>
+
+  <div class="disclaimer">
+    <h3>About These Materials</h3>
+    <p>These course materials are derived from the official course curriculum with supplementary notes and explanations added to enhance comprehension and clarity.<br>While every effort has been made to ensure accuracy, these notes represent personal interpretations of the course content.</p>
+    <p>Please note that these materials are provided for educational purposes only.<br>I don't give any warranties regarding completeness, reliability, or accuracy of the content and disclaim responsibility for any errors, omissions, or misinterpretations that may be present.</p>
+    <p>For authoritative information, students should always refer to the official course materials and consult with course instructors.</p>
+  </div>
+</body>
+</html>

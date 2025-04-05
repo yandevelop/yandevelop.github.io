@@ -1,220 +1,553 @@
-<!-- Snow animation from https://github.com/hyperstown/puresnowjs -->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="icon" href="https://yandevelop.github.io/assets/icons/favicon.ico" type="image/x-icon"/>
-<link rel="shortcut icon" href="https://yandevelop.github.io/assets/icons/favicon.ico" type="image/x-icon"/>
-<meta charset="urf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="assets/js/snow.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>yandevelop | AI Student & Software Developer</title>
+  <link rel="icon" href="https://yandevelop.github.io/assets/icons/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0f766e',
+            secondary: '#475569',
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'gradient': 'gradient 15s ease infinite',
+            'fade-in': 'fadeIn 1s ease-in forwards',
+            'slide-up': 'slideUp 0.8s ease forwards',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            gradient: {
+              '0%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+              '100%': { backgroundPosition: '0% 50%' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
-  <div id="snow"></div>
-  <div class="head">
-    <div class="icon">
-      <img src="CydiaIcon.png" alt="icon">
+<body class="bg-white font-sans text-gray-800 antialiased">
+  <nav class="sticky top-0 z-10 backdrop-blur-md bg-white/90 border-b border-gray-100">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <span class="text-xl font-semibold text-primary">yandevelop</span>
+      <div class="flex items-center">
+        <div class="space-x-6 hidden md:flex mr-6">
+          <a href="#about" class="text-gray-600 hover:text-primary transition">About</a>
+          <a href="#skills" class="text-gray-600 hover:text-primary transition">Skills</a>
+          <a href="#projects" class="text-gray-600 hover:text-primary transition">Projects</a>
+          <a href="#education" class="text-gray-600 hover:text-primary transition">Education</a>
+          <a href="#tune" class="text-gray-600 hover:text-primary transition">Tune</a>
+          <a href="#contact" class="text-gray-600 hover:text-primary transition">Contact</a>
+        </div>
+        <a href="https://github.com/yandevelop" target="_blank" rel="noopener noreferrer" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-primary transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
     </div>
-    <div class="head-h">
-    <h1>yan's repository</h1>
-    </div>
-    <div class="head-d">
-      <p>Add this repository to your package manager</p>
-    </div>
-    <div class="btns">
-      <a href="sileo://source/https://yandevelop.github.io/" class="btn-sileo">Sileo</a>
-      <a href="zbra://sources/add/https://yandevelop.github.io/" class="btn-sileo">Zebra</a>
-      <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://yandevelop.github.io/" class="btn-sileo">Cydia</a>
-    </div>
-  </div>
-<style>
-html, * {
-  font-family: Montserrat, sans-serif;
-  padding: 0;
-  margin: 0;
-}
+  </nav>
 
-.snowflake {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: linear-gradient(white, white);
-  border-radius: 50%;
-  filter: drop-shadow(0 0 2px white);
-  z-index: -1;
-}
+  <main>
+    <section class="relative py-24 md:py-32 px-6 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 animate-gradient bg-[size:200%_200%]"></div>
+      
+      <div class="absolute opacity-10 -top-10 -left-10 w-40 h-40 bg-primary rounded-full blur-3xl"></div>
+      <div class="absolute opacity-10 bottom-10 right-10 w-60 h-60 bg-secondary rounded-full blur-3xl animate-float"></div>
+      
+      <div class="container relative z-10 mx-auto max-w-4xl">
+        <div class="text-center md:text-left space-y-6">
+          <span class="inline-block text-primary border border-primary/20 rounded-full px-4 py-1.5 text-sm font-medium mb-4 animate-fade-in opacity-0" style="animation-delay: 0.2s">AI Student & Software Developer</span>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-800 leading-tight animate-fade-in opacity-0" style="animation-delay: 0.4s">
+            Hey, I'm <span class="text-primary">yan</span>
+          </h1>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto md:mx-0 animate-fade-in opacity-0" style="animation-delay: 0.6s">
+            Currently exploring the world of artificial intelligence, creating tweaks that enhance the iOS experience, and developing software applications for businesses.
+          </p>
+          <div class="pt-4 flex flex-wrap gap-4 justify-center md:justify-start animate-fade-in opacity-0" style="animation-delay: 0.8s">
+            <a href="#projects" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition">View My Work</a>
+            <a href="#contact" class="bg-white hover:bg-gray-50 text-primary px-6 py-3 rounded-lg font-medium border border-gray-200 transition">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="absolute right-0 bottom-0 w-full h-16 bg-gradient-to-t from-white to-transparent"></div>
+    </section>
 
-body {
-  background: linear-gradient(270deg, rgba(126,217,255,1) 0%, rgba(43,197,209,1) 50%, rgba(0,162,255,1) 100%); 
-  color: white;
-}
+    <section id="about" class="py-16 px-6 bg-gray-50">
+      <div class="container mx-auto max-w-4xl">
+        <div class="flex flex-col md:flex-row items-center md:items-end justify-between mb-10">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 relative">
+            About Me
+            
+          </h2>
+          <div class="h-px w-full md:w-1/3 bg-gray-200 mt-4 md:mt-0"></div>
+        </div>
+    
+        <div class="bg-white rounded-xl shadow-sm p-8 hover:shadow-md transition-all duration-300">
+          <div class="space-y-6">
+            <p class="text-lg text-gray-700 leading-relaxed">
+              Hey there! I'm a passionate software developer currently studying <span class="text-primary font-semibold">Artificial Intelligence and Data Science</span>. With a deep interest in technology and innovation, I create tools and applications that make digital experiences better.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-6 my-8">
+              <div class="group bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 shadow-sm hover:shadow transition-all duration-300 border border-gray-100">
+                <div class="flex items-center mb-4 justify-between">
+                  <h3 class="font-semibold text-lg">Music Enthusiast</h3>
+                  <div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-gray-600">I love both listening to and creating music in my spare time.</p>
+              </div>
+              
+              <div class="group bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 shadow-sm hover:shadow transition-all duration-300 border border-gray-100">
+                <div class="flex items-center mb-4 justify-between">
+                  <h3 class="font-semibold text-lg">Woodworking</h3>
+                  <div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M13 7H7v6h6V7z"></path>
+                      <path fill-rule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-gray-600">I enjoy crafting and building things with wood when I'm away from the screen.</p>
+              </div>
+              
+              <div class="group bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 shadow-sm hover:shadow transition-all duration-300 border border-gray-100">
+                <div class="flex items-center mb-4 justify-between">
+                  <h3 class="font-semibold text-lg">Development</h3>
+                  <div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-gray-600">Coding is both my profession and passion — I love creating digital experiences.</p>
+              </div>
+            </div>
+            
+            <p class="text-gray-700">
+              My journey in tech has led me to specialize in iOS tweak development, where I create tools that enhance the functionality and aesthetics of iOS devices. I'm constantly exploring new technologies and approaches to solve interesting problems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.icon {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
+    <section id="skills" class="py-16 px-6">
+      <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl font-bold mb-12 text-center">Technical Skills</h2>
+        
+        <div class="mb-12">
+          <h3 class="text-xl font-semibold mb-6 text-primary text-center">Languages</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <div class="group relative bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-28">
+              <div class="absolute inset-0 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:opacity-0">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="h-14 w-14 mb-2" alt="C">
+                <p class="font-medium text-gray-800">C</p>
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center bg-primary/95 opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 text-white text-center">
+                <p class="text-xs">Low-level programming with memory management and system calls</p>
+              </div>
+            </div>
+    
+            <div class="group relative bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-28">
+              <div class="absolute inset-0 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:opacity-0">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/objectivec/objectivec-plain.svg" class="h-14 w-14 mb-2" alt="Objective-C">
+                <p class="font-medium text-gray-800">Objective-C</p>
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center bg-primary/95 opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 text-white text-center">
+                <p class="text-xs">iOS and macOS native app development</p>
+              </div>
+            </div>
+    
+            <div class="group relative bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-28">
+              <div class="absolute inset-0 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:opacity-0">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="h-14 w-14 mb-2" alt="Java">
+                <p class="font-medium text-gray-800">Java</p>
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center bg-primary/95 opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 text-white text-center">
+                <p class="text-xs">Basic programming and understanding of OOP principles</p>
+              </div>
+            </div>
+    
+            <div class="group relative bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-28">
+              <div class="absolute inset-0 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:opacity-0">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="h-14 w-14 mb-2" alt="Python">
+                <p class="font-medium text-gray-800">Python</p>
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center bg-primary/95 opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 text-white text-center">
+                <p class="text-xs">Data science, AI/ML and automation</p>
+              </div>
+            </div>
+    
+            <div class="group relative bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-28">
+              <div class="absolute inset-0 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:opacity-0">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" class="h-14 w-14 mb-2" alt="PHP">
+                <p class="font-medium text-gray-800">PHP</p>
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center bg-primary/95 opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 text-white text-center">
+                <p class="text-xs">Web development and server-side applications</p>
+              </div>
+            </div>
+    
+            <div class="group relative bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-28">
+              <div class="absolute inset-0 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:opacity-0">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" class="h-14 w-14 mb-2" alt="Swift">
+                <p class="font-medium text-gray-800">Swift</p>
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center bg-primary/95 opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 text-white text-center">
+                <p class="text-xs">Modern iOS app development and system programming</p>
+              </div>
+            </div>
 
-.icon img {
-  width: 85px;
-  border-radius: 25%;
-  box-shadow: 1px 15px 43px -13px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 1px 15px 43px -13px rgba(0,0,0,0.75);
-  -moz-box-shadow: 1px 15px 43px -13px rgba(0,0,0,0.75);
-}
+            <div class="group relative bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-28">
+              <div class="absolute inset-0 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:opacity-0">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="h-14 w-14 mb-2" alt="HTML/CSS">
+                <p class="font-medium text-gray-800">HTML/CSS</p>
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center bg-primary/95 opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 text-white text-center">
+                <p class="text-xs">Web markup and styling for responsive interfaces</p>
+              </div>
+            </div>
+    
+            <div class="group relative bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-28">
+              <div class="absolute inset-0 flex flex-col items-center justify-center p-4 transition-all duration-300 group-hover:opacity-0">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="h-14 w-14 mb-2" alt="JavaScript">
+                <p class="font-medium text-gray-800">JavaScript</p>
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center bg-primary/95 opacity-0 group-hover:opacity-100 transition-all duration-300 p-4 text-white text-center">
+                <p class="text-xs">Interactive web applications and UI development</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div>
+          <h3 class="text-xl font-semibold mb-6 text-primary text-center">Focus Areas</h3>
+          
+          <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+            <div class="px-5 py-2 bg-gray-50 rounded-full shadow-sm hover:shadow transition-all duration-300">
+              <span class="font-medium text-gray-800">iOS Tweak Development</span>
+            </div>
+            
+            <div class="px-5 py-2 bg-gray-50 rounded-full shadow-sm hover:shadow transition-all duration-300">
+              <span class="font-medium text-gray-800">SaaS Development</span>
+            </div>
+            
+            <div class="px-5 py-2 bg-gray-50 rounded-full shadow-sm hover:shadow transition-all duration-300">
+              <span class="font-medium text-gray-800">Artificial Intelligence</span>
+            </div>
+            
+            <div class="px-5 py-2 bg-gray-50 rounded-full shadow-sm hover:shadow transition-all duration-300">
+              <span class="font-medium text-gray-800">Data Science</span>
+            </div>
+            
+            <div class="px-5 py-2 bg-gray-50 rounded-full shadow-sm hover:shadow transition-all duration-300">
+              <span class="font-medium text-gray-800">UI/UX Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
 
-.head-h {
-  color: white;
-  font-weight: 900;
-}
+    <section id="projects" class="py-16 px-6 bg-gray-50">
+      <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl font-bold mb-8 text-center">Featured Projects</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="https://havoc.app/package/bloom" target="_blank">
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group">
+              <div class="aspect-[5/3] bg-gray-100 flex items-center justify-center">
+                <img src="assets/icons/bloom/icon.png" alt="Bloom Icon" class="h-24 w-auto group-hover:scale-105 transition duration-300">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-3 text-primary">Bloom</h3>
+                <p class="text-gray-600">A beautiful iOS customization tweak that enhances your device's notifications.</p>
+              </div>
+            </div>
+          </a>
+          <a href="https://havoc.app/package/stella" target="_blank">
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group">
+              <div class="aspect-[5/3] bg-gray-100 flex items-center justify-center">
+                <img src="assets/icons/stella/icon.png" alt="Stella Icon" class="h-24 w-auto group-hover:scale-105 transition duration-300">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-3 text-primary">Stella</h3>
+                <p class="text-gray-600">Let it snow on your iPhone – a weather animation tweak for iOS.</p>
+              </div>
+            </div>
+          </a>
+          <a href="https://havoc.app/package/anitime" target="_blank">
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group">
+              <div class="aspect-[5/3] bg-gray-100 flex items-center justify-center">
+                <img src="assets/icons/anitime/icon.png" alt="AniTime Icon" class="h-24 w-auto group-hover:scale-105 transition duration-300">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-3 text-primary">AniTime</h3>
+                <p class="text-gray-600">Animated clock and time display customizations for iOS.</p>
+              </div>
+            </div>
+          </a>
+          <a href="https://havoc.app/package/fiona" target="_blank">
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition group">
+              <div class="aspect-[5/3] bg-gray-100 flex items-center justify-center">
+                <img src="assets/icons/fiona/icon.png" alt="Fiona Icon" class="h-24 w-auto group-hover:scale-105 transition duration-300">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-3 text-primary">Fiona</h3>
+                <p class="text-gray-600">Reimagines the iOS stock UITabBar implementation with a more modern approach.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-.head {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  justify-items: center;
-  min-height: 100vh;
-  text-align: center;
-}
-
-.head-d {
-  font-weight: 300;
-  color: white;
-  padding-top: 0.7rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-}
-
-.btns {
-  width: auto;
-  margin-left: 1.7rem;
-  margin-right: 1.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-sileo {
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  margin-top: 1.4rem;
-  font-size: 17px;
-  text-decoration: none;
-  background: #00d9ff;
-  width: 130px;
-  padding: 10px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -webkit-transition-property: box-shadow, transform;
-  transition-property: box-shadow, transform;
-  margin-left: 0.6rem;
-  margin-right: 0.6rem;
-}
-
-.btn-sileo:hover, .btn-sileo:focus, .btn-sileo:active {
-  box-shadow: 0 0 2px rgba(83, 249, 255, 0.4);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-.tweaks {
-  margin: auto;
-  align-items: center;
-  color: #fff;
-  margin: 3.2rem;
-  text-align: center;
-}
-
-.tweaks img {
-  width: 80%;
-  max-width: 400px;
-  margin: 0 auto 0 auto;
-  height: auto;
-}
-
-.tweaks p {
-  font-size: 1rem;
-}
-
-.tweaks h1 {
-  font-size: 2rem;
-}
-
-.tweak-img {
-  margin: auto;
-}
-
-.tweak-section {
-  margin-top: 1.1rem;
-  width: 100%;
-}
-
-.tweak-section h2 {
-  font-size: 1.7rem;
-}
-
-.version {
-  padding-top: 0.5rem;
-}
-
-.description {
-  align-items: center;
-}
-
-@media screen and (max-width:300px) {
-  .body {
-    margin-top: 0px;
-  }
-
-  .head-h {
-    font-size: 10px;
-  }
-
-  .head-d {
-    font-size: 10px;
-  }
-
-  .btn-sileo {
-    font-size: 12px;
-  }
-}
-
-/* why does thuis not work? */
-@media screen and (max-width: 768px) {
-  .btns {
-    flex-direction: column;
-  }
-
-  .btn-sileo {
-    margin-top: 2rem;
-    width: 300px;
-  }
-}
-
-</style>
+    <section id="education" class="py-16 px-6">
+      <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl font-bold mb-8 text-center">Educational Resources</h2>
+        
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-6">
+          <div class="md:flex items-center">
+            <img src="/assets/svms.png" alt="Mathematical Foundations for Data Science" class="w-full md:w-2/5 h-64 object-cover object-center">
+            <div class="md:w-3/5 p-8">
+              <p class="text-gray-700 mb-6">A comprehensive collection of course notes and materials covering the mathematical foundations essential for data science. These materials are created to help fellow students master complex concepts.</p>
+              
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Introduction to Data Science</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Supervised Learning Methods</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Unsupervised Learning Techniques</span>
+                </div>
+              </div>
+              
+              <a href="/mfds/index.html" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition">
+                <span>Explore Course Notes</span>
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Not ready yet
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+          <div class="md:flex items-center">
+            <div class="md:w-2/5 h-64 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
+              <div class="text-center">
+                <h3 class="text-2xl font-bold text-primary">Theory of</h3>
+                <h3 class="text-2xl font-bold text-primary">Machine Learning</h3>
+              </div>
+            </div>
+            <div class="md:w-3/5 p-8">
+              <p class="text-gray-700 mb-6">An in-depth exploration of the theoretical underpinnings of machine learning algorithms and methodologies. These notes cover the mathematical concepts that form the foundation of modern AI systems.</p>
+              
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Statistical Learning Theory</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Neural Network Foundations</span>
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Computational Learning Theory</span>
+                </div>
+              </div>
+              
+              <a href="/tml/index.html" class="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition">
+                <span>Explore Course Notes</span>
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>-->
 <!--
-<div class="tweaks">
-  <h1>Tweaks</h1>
-  <div class="tweak-section">
-    <h2>Stella</h2>
-    <div class="tweak-img">
-        <img src="/assets/imgs/Stella-t.png" alt="Depiction picture of tweak Stella" width="50%">
+    <section id="tune" class="py-16 px-6">
+      <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl font-bold mb-8 text-center">Tune of the Week</h2>
+        <div class="bg-gradient-to-br from-yellow-200 via-red-600 to-red-900 rounded-xl shadow-lg p-4 sm:p-8 text-white">
+          <div class="flex flex-row items-center gap-3 sm:gap-6">
+            <div class="w-28 h-28 sm:w-40 sm:h-40 flex-shrink-0 rounded-lg overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-105">
+              <img src="https://i.scdn.co/image/ab67616d0000b273f2bb8524f27bbcfef982599f" alt="Forever, Howlong Album Cover" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="h-28 sm:h-40 flex flex-col justify-between overflow-hidden">
+              <div>
+                <span class="text-xs sm:text-sm uppercase tracking-wider text-gray-100 mb-1 block">Now Playing</span>
+                <h3 class="text-lg sm:text-2xl font-semibold text-white truncate">The Big Spin</h3>
+                <p class="text-gray-100 text-sm sm:text-base">Black Country, New Road</p>
+                <p class="text-gray-200 text-xs sm:text-sm">Forever, Howlong</p>
+              </div>
+              <div>
+                <a href="https://open.spotify.com/track/3cVKy8GOboRUtsIFgeYU9J?si=646e679b8a0b40ea" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-3 py-1 sm:px-4 sm:py-2 bg-green-600 hover:bg-green-700 rounded-full text-xs sm:text-sm font-medium transition-colors">
+                  <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                  </svg>
+                  <span class="whitespace-nowrap">Listen on Spotify</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>-->
+
+    <section id="tune" class="py-16 px-6">
+      <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl font-bold text-center">Tune of the Week</h2>
+        <p class="text-gray-600 text-center mb-8">Check out my current favorite track!</p>
+        <div class="bg-gradient-to-br from-yellow-200 via-red-600 to-red-900 rounded-xl shadow-lg p-6 text-white">
+          <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5">
+            <div class="w-52 h-52 sm:w-40 sm:h-40 flex-shrink-0 rounded-lg overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-105">
+              <img src="https://i.scdn.co/image/ab67616d0000b273f2bb8524f27bbcfef982599f" alt="Forever, Howlong Album Cover" class="w-full h-full object-cover">
+            </div>
+            <div class="w-full sm:h-40 flex flex-col justify-between">
+              <div class="text-center sm:text-left">
+                <span class="text-sm uppercase tracking-wider text-gray-100 mb-1 block">Now Playing</span>
+                <h3 class="text-xl sm:text-2xl font-semibold text-white">The Big Spin</h3>
+                <p class="text-gray-100 text-base">Black Country, New Road</p>
+                <p class="text-gray-200 text-sm">Forever, Howlong</p>
+              </div>
+              <div class="flex justify-center sm:justify-start mt-4 sm:mt-0">
+                <a href="https://open.spotify.com/track/3cVKy8GOboRUtsIFgeYU9J?si=646e679b8a0b40ea" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 rounded-full text-sm font-medium transition-colors">
+                  <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                  </svg>
+                  <span class="whitespace-nowrap">Listen on Spotify</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 px-6 bg-gray-50">
+      <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
+        <div class="bg-white rounded-xl shadow-sm p-8 text-center">
+          <p class="text-gray-600 mb-6">Have a question or want to collaborate? Feel free to reach out!</p>
+          <div class="inline-flex items-center justify-center gap-2 bg-gray-100 px-4 py-2 rounded-full">
+            <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path>
+              <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path>
+            </svg>
+            <span class="font-semibold text-gray-700">Discord:</span>
+            <span>@yandevelop</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 px-6 border-t border-gray-100">
+    <div class="container mx-auto max-w-4xl text-center text-gray-500 text-sm">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> yandevelop. All rights reserved.</p>
     </div>
-    <div class="description">
-      <p>Let it snow on your iPhone</p>
-    </div>
-    <div class="version">
-      <h4>Version: 1.0</h4>
-    </div>
-  </div>
-</div>-->
+  </footer>
+  
+  <script>
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('shadow-sm');
+      } else {
+        nav.classList.remove('shadow-sm');
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-up');
+            entry.target.style.opacity = '1';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('section h2, .project-card, .skill-category').forEach(el => {
+        el.style.opacity = '0';
+        observer.observe(el);
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            const headerOffset = 20;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+            
+            history.pushState(null, null, targetId);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
