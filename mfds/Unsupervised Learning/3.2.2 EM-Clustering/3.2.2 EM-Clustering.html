@@ -312,11 +312,12 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.mhchemParser=void 0;var r=fun
   cluster, weighted by their respective priors <span class="math inline">\(\pi_k\)</span></p>
   <p>The so-called EM (Expectation Maximization) algorithm now starts from
   an initial initialization of the parameters <span class="math inline">\(\pi_k, m_k, \sum_k\)</span> and updates these
-  using the following rules: #### Initialization Basically figure out the
-  square or space you are in and either place points randomly or if you
-  have two clusters, you compute a mean point, and pertubate this point
-  into two points then and thus initialize the parameters. Elsewise often
-  K-Means is just used for initialization</p>
+  using the following rules:</p>
+  <h4 id="initialization">Initialization</h4>
+  <p>Basically figure out the square or space you are in and either place
+  points randomly or if you have two clusters, you compute a mean point,
+  and pertubate this point into two points then and thus initialize the
+  parameters. Elsewise often K-Means is just used for initialization</p>
   <p>First, we define a kind of weight for the <span class="math inline">\(k\)</span>-th group as the sum of <span class="math inline">\(\gamma(x, k)\)</span> over all data points via</p>
   <h4 id="section-3">3.2.12</h4>
   <p><span class="math display">\[N(k) \leftarrow \sum_{i=1}^N \gamma(x_i,

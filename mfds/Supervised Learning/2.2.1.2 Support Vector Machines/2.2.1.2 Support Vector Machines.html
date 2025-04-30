@@ -219,163 +219,170 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.mhchemParser=void 0;var r=fun
   <a href="/mfds/index.html">Home</a> &gt; <a href="/mfds/Supervised Learning/2.0 Chapter 2 - Supervised Learning.html">Supervised Learning</a> &gt; <a href="/mfds/Supervised Learning/2.2 Classification/2.2 Classification.html">Classification</a> &gt; <a href="/mfds/Supervised Learning/2.2.1 Linear Classification/2.2.1 Linear Classification.html">Linear Classification</a> &gt; Support Vector Machines
 </div>
 <header id="title-block-header">
-<h1 class="title">2.2.1.2 Support Vector Machines</h1>
-</header>
-<p>The question now is whether and how one can select an optimal
-hyperplane. Our goal will be to find a hyperplane that has the maximum
-possible distance from the nearest points of the two classes. For this,
-we first derive an expression for the distance of a point to a
-hyperplane.</p>
-<h4 id="proposition-2.2.1">Proposition 2.2.1</h4>
-<p>Let <span class="math inline">\(x_0 \in \mathbb{R}^d\)</span> and
-<span class="math inline">\(\mathcal{H} := \{x \in \mathbb{R}^d :
-\langle w, x \rangle + b =0 \}\)</span> (<span class="math inline">\(w
-\in \mathbb{R}^d\)</span> is the normal vector (perpendicular to the
-hyperplane), <span class="math inline">\(b \in \mathbb{R}\)</span> is
-the bias term (offset from the margin)): Then it holds that <span class="math display">\[\text{dist}(x_0, \mathcal{H}) :=
-\text{inf}\{||x_0 - x|| : x \in \mathcal{H}\} = \frac{|\langle w, x_0
-\rangle + b|}{||w||}\]</span> (The shortest distance from a point <span class="math inline">\(x_0\)</span> to a hyperplane is the length of the
-perpendicular line from <span class="math inline">\(x_0\)</span> to
-<span class="math inline">\(\mathcal{H}\)</span> <span class="math inline">\(\frac{|\langle w, x_0 \rangle +
-b|}{||w||}\)</span>. This arises from projecting the vector <span class="math inline">\(x_0 - x\)</span> (where <span class="math inline">\(x \in \mathcal{H}\)</span>) onto the normal vector
-<span class="math inline">\(w\)</span> Proof. The proof will be provided
-in the exercise</p>
-<p>We assume that the data are linearly separable and now consider the
-following optimization problem</p>
-<h4 id="section">2.2.5</h4>
-<p><span class="math display">\[\text{max}\biggl\{M : w \in
-\mathbb{R}^d, b \in \mathbb{R}, y_i(\langle w, x_i\rangle + b \geq M
-||w||, \forall i = 1,...,N\biggl\}\]</span> (The constraint ensures all
-points are classified correctly and are at least <span class="math inline">\(M\)</span> away from the hyperplane). The value
-<span class="math inline">\(M\)</span> is the distance of the data
-points to the hyperplane that we want to maximize. The constraint <span class="math inline">\(y_i(\langle w, x_i \rangle + b) \geq M
-||w||\)</span> is, according to <a href="#Proposition 2.2.1" class="wikilink">#Proposition 2.2.1</a> equivalent to all points being
-correctly classified and having a distance of at least <span class="math inline">\(M\)</span> from the hyperplane. Since we assume
-that the data are linearly separable, the constraints are at least
-satisfiable with <span class="math inline">\(M = 0\)</span>. Since the
-constraints are scale-invariant, we can, without loss of generality, set
-<span class="math inline">\(||w|| = \frac{1}{M}\)</span> and obtain the
-problem <span class="math display">\[\text{max}\biggl\{\frac{1}{||w||} :
-w \in \mathbb{R}^d, y_i (\langle w, x_i \rangle + b) \geq 1, \forall i =
-1,...,N\biggl\}\]</span> which is usually given in the following
-equivalent standard form (maximizing <span class="math inline">\(\frac{1}{||w||}\)</span>, is equivalent to
-minimizing <span class="math inline">\(||w||^2\)</span>)</p>
-<h4 id="section-1">2.2.6</h4>
-<p><span class="math display">\[\min \biggl\{\frac{1}{2}||w||^2 : w \in
-\mathbb{R}^d, b \in \mathbb{R}, y_i(\langle w, x_i \rangle + b) \geq 1,
-\forall i = 1,...,N\biggl\}\]</span> (objective function <span class="math inline">\(\frac{1}{2}||w||^2\)</span> minimizes the norm of
-<span class="math inline">\(w\)</span>, which maximizes the margin, the
-constraints ensure that every data point is correctly classified and at
-least distance 1 from the hyperplane) This is a quadratic optimization
-problem with linear constraints and can be solved using classical
-numerical optimization methods. A classifier of the form <span class="math inline">\(\hat{f}(x) = \text{sign}(\langle w, x \rangle +
-b)\)</span>, where <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> are solutions to <a href="#2.2.6" class="wikilink">#2.2.6</a>, is called a <strong>support vector
-machine</strong> (SVM). The reason for this is that the classifier
-essentially depends only on the points that are closest to the
-hyperplane <span class="math inline">\(\langle w, x \rangle +b\)</span>
-and thus satisfy <span class="math inline">\(y_i(\langle w, x_i \rangle
-+ b) = 1\)</span> (points that lie <strong>exactly on the
-margin</strong>), the so-called support vectors (points nearest to the
-hyperplane). If the points <strong>that are further away</strong>,
-i.e. <span class="math inline">\(y_i(\langle w, x_i \rangle + b)
-\gt1\)</span>, are slightly altered, the SVM remains unchanged. So far,
-we have assumed that the data are linearly separable, which ensures that
-the constraints in <a href="#2.2.5" class="wikilink">#2.2.5</a> or <a href="#2.2.6" class="wikilink">#2.2.6</a> are satisfiable. In most
-realistic applications, this assumption does not hold (there is usually
-overlap between classes, making constraints like above impossible to
-satisfy for all points)! Nevertheless, we would like to find a
-hyperplane in these situations that violates the constraints for as few
-points as possible. To do this, we introduce non-negative slack
-variables <span class="math inline">\(\xi_i \geq 0\)</span> for <span class="math inline">\(i = 1,...,N\)</span> which measure the deviation
-from <span class="math inline">\(y_i(\langle w, x_i \rangle +b) \geq
-1\)</span> by replacing this constraint with <span class="math inline">\(y_i(\langle w, x_i \rangle + b) \geq 1 -
-\xi_i\)</span>. - If <span class="math inline">\(\xi_i = 0\)</span>: The
-point is correctly classified outside the margin - If <span class="math inline">\(0 &lt; \xi_i &lt; 1\)</span>: The point is
-correctly classified inside the margin - If <span class="math inline">\(\xi_i \geq 1\)</span>: The point is misclassified
-Those slack variables are introduced one for each data point and relax
-the constraint to</p>
-<p>At the same time, we want the slack variables to be as small as
-possible and therefore consider the following optimization problem</p>
-<h4 id="section-2">2.2.7</h4>
-<p><span class="math display">\[\min \biggl\{ \frac{1}{N} \sum_{i=1}^N
-\xi_i + \frac{\lambda}{2} ||w||^2 : w \in \mathbb{R}^d, b \in
-\mathbb{R}, \xi_i \in \mathbb{R},\]</span> <span class="math display">\[
-y_i(\langle w, x_i \rangle + b) \geq 1- \xi_i, \xi_i \geq 0, \forall i =
-1,...,N \biggl\}\]</span> - the term <span class="math inline">\(\frac{1}{N} \sum_{i=1}^N \xi_i\)</span> penalizes
-constraint violations - minimizing this keeps most points correctly
-classified - the term <span class="math inline">\(\frac{\lambda}{2}||w||^2\)</span> maintains a
-large margin - we still want to keep the margin as wide as possible -
-The parameter <span class="math inline">\(\lambda\)</span> controls
-trade-off between margin-size and misclassification allowance. - Large
-<span class="math inline">\(\lambda\)</span> prioritizes a large margin,
-allowing fewer misclassifications - Small <span class="math inline">\(\lambda\)</span> allows more misclassifications to
-better fit noisy data</p>
-<p>where <span class="math inline">\(\lambda &gt; 0\)</span> is a
-selectable parameter. Formally, we see that in the linearly separable
-case <a href="#2.2.7" class="wikilink">#2.2.7</a> reduces to <a href="#2.2.6" class="wikilink">#2.2.6</a> in the limit as <span class="math inline">\(\lambda \to \infty\)</span> In practice <a href="#2.2.7" class="wikilink">#2.2.7</a> has an equivalent formulation
-as an optimization problem without constraints.</p>
-<p>To do this, we note that we can replace the constraint <span class="math inline">\(y_i(\langle w, x_i \rangle + b) \geq 1 -
-\xi_i\)</span> with an equality constraint. This follows from the
-following simple argument: If the constraint is satisfied with a strict
-inequality at the optimum, we could reduce <span class="math inline">\(\xi_i\)</span> to create an equality while also
-reducing the objective function. Thus, we can perform the variable
-substitution <span class="math inline">\(\xi_i := 1 - y_i(\langle w,
-x_i\rangle +b)\)</span>. From the non-negativity condition, we finally
-obtain <span class="math inline">\(\xi_i =\max(0, 1-y_i(\langle w, x_i
-\rangle + b))\)</span>. This term is also called <strong>Hinge
-Loss</strong>. Substituting this into <a href="#2.2.7" class="wikilink">#2.2.7</a> yields the equivalent problem</p>
-<h4 id="section-3">2.2.8</h4>
-<p><span class="math display">\[\min_{\substack{w \in \mathbb{R}^d \\ b
-\in \mathbb{R}}}\biggl\{
-\frac{1}{N} \sum_{i=1}^N \max(0, 1-y_i(\langle w, x_i \rangle +b))  +
-\frac{\lambda}{2} ||w||^2
-\biggl\}\]</span> Note that this is a convex problem in the variables
-<span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> we are looking for. Unfortunately, the
-objective function, similar to the Perceptron loss in <a href="#2.2.3" class="wikilink">#2.2.3</a>, is not differentiable in <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> when <span class="math inline">\(y_i
-(\langle w, x_i \rangle + b) = 1\)</span>. We again compute subgradients
-of the function <span class="math display">\[f_i (w, b) := \max(0,
-1-y_i(\langle w, x_i \rangle +b)) + \frac{\lambda}{2} ||w||^2\]</span>
-with respect to the two variables <span class="math inline">\(w \in
-\mathbb{R}^d\)</span> and <span class="math inline">\(b \in
-\mathbb{R}\)</span>: <span class="math display">\[\partial_w f_i(w,b):=
--y_ix_i1_{y_i(\langle w, x_i \rangle + b) &lt; 1} + \lambda w\]</span>
-<span class="math display">\[\partial_b f_i(w,b):= -y_i1_{y_i(\langle w,
-x_i \rangle + b) &lt; 1}\]</span> The objective function in <a href="#2.2.8" class="wikilink">#2.2.8</a> is given by <span class="math inline">\(\frac{1}{N}\sum_{i=1}^N f_i(w, b)\)</span>, and
-thus we can now perform a deterministic or stochastic subgradient
-method: <span class="math display">\[\begin{cases}
-w_{k+1} := w_k - \frac{\tau}{|\mathcal{I}|} \sum_{i\in \mathcal{I}}
-\partial_w f_i(w_k, b_k) \\
-b_{k+1} := b_k - \frac{\tau}{|\mathcal{I}|} \sum_{i \in \mathcal{I}}
-\partial_b f_i (w_k, b_k)
-\end{cases}\]</span> Here, <span class="math inline">\(\mathcal{I} =
-\{1,..., N\}\)</span> corresponds to the deterministic case, and in the
-stochastic case, <span class="math inline">\(\mathcal{I}\)</span> is a
-batch of size <span class="math inline">\(B \leq N\)</span> The natural
-question arises: how can SVMs be generalized for classification of data
-that are not or poorly linearly separable? One conceptual approach for
-this is so-called kernel SVMs, which replace all inner products <span class="math inline">\(\langle x, y \rangle\)</span> for <span class="math inline">\(x, y \in \mathbb{R}^d\)</span> with values of a
-symmetric function <span class="math inline">\(k(x, y)\)</span>.
-Addressing this is beyond the scope of this lecture.</p>
-<p>In fact, this approach is equivalent to embedding the data points
-<span class="math inline">\(x_i \in \mathbb{R}^d\)</span> into a
-higher-dimensional space and thus classifying points <span class="math inline">\(\phi(x_i) \in \mathbb{R}^D\)</span>. A possible
-embedding would be <span class="math inline">\(\phi : \mathbb{R}^d \to
-\mathbb{R}^{2d}\)</span> with <span class="math display">\[\phi(x) :=
-(x_1, ..., x_d, x_1^2,...,x_d^2)^T\]</span> Here, <span class="math inline">\(x_i\)</span> denotes the <span class="math inline">\(i\)</span>-th coordinate of <span class="math inline">\(x \in \mathbb{R}^d\)</span> and not the <span class="math inline">\(i\)</span>-th data point <span class="math inline">\(x_i \in \mathbb{R}^d\)</span>! A hyperplane in
-<span class="math inline">\(\mathbb{R}^{2d}\)</span> then, in the
-original coordinates, is expressed as: <span class="math display">\[0 =
-b + \sum_{i=1}^d w_i x_i + \sum_{i=1}^d w_{d+1}x_i^2 = b + \langle w, x
-\rangle + x^T Dx\]</span> with <span class="math inline">\(w = (w_1,
-...,w_d)^T \in \mathbb{R}^d\)</span> and <span class="math inline">\(D
-:= \text{diag}(w_{d+1}, ..., w_{2d}) \in \mathbb{R}^{d \times
-d}\)</span>. This is a quadratic equation in <span class="math inline">\(\mathbb{R}^d\)</span> and the solutions are
-parabolas. In a similar way, arbitrarily complex classifiers can be
-generated in <span class="math inline">\(\mathbb{R}^d\)</span>. As
-another example, consider the embedding <span class="math inline">\(\phi
-: \mathbb{R}^2 \to \mathbb{R}^3\)</span> with <span class="math inline">\(\phi(x) := (x_1, x_2, x_1^2+ x_2^2)\)</span>. The
-following hyperplane <span class="math display">\[ 0 = b + (x_1^2 +
-x_2^2)\]</span> with <span class="math inline">\(b \leq 0\)</span> is a
-circle equation in <span class="math inline">\(\mathbb{R}^2\)</span></p>
+  <h1 class="title">2.2.1.2 Support Vector Machines</h1>
+  </header>
+  <p>The question now is whether and how one can select an optimal
+  hyperplane. Our goal will be to find a hyperplane that has the maximum
+  possible distance from the nearest points of the two classes. For this,
+  we first derive an expression for the distance of a point to a
+  hyperplane.</p>
+  <h4 id="proposition-2.2.1">Proposition 2.2.1</h4>
+  <p>Let <span class="math inline">\(x_0 \in \mathbb{R}^d\)</span> and
+  <span class="math inline">\(\mathcal{H} := \{x \in \mathbb{R}^d :
+  \langle w, x \rangle + b =0 \}\)</span> (<span class="math inline">\(w
+  \in \mathbb{R}^d\)</span> is the normal vector (perpendicular to the
+  hyperplane), <span class="math inline">\(b \in \mathbb{R}\)</span> is
+  the bias term (offset from the margin)): Then it holds that <span class="math display">\[\text{dist}(x_0, \mathcal{H}) :=
+  \text{inf}\{||x_0 - x|| : x \in \mathcal{H}\} = \frac{|\langle w, x_0
+  \rangle + b|}{||w||}\]</span> (The shortest distance from a point <span class="math inline">\(x_0\)</span> to a hyperplane is the length of the
+  perpendicular line from <span class="math inline">\(x_0\)</span> to
+  <span class="math inline">\(\mathcal{H}\)</span> <span class="math inline">\(\frac{|\langle w, x_0 \rangle +
+  b|}{||w||}\)</span>. This arises from projecting the vector <span class="math inline">\(x_0 - x\)</span> (where <span class="math inline">\(x \in \mathcal{H}\)</span>) onto the normal vector
+  <span class="math inline">\(w\)</span> Proof. The proof will be provided
+  in the exercise</p>
+  <p>We assume that the data are linearly separable and now consider the
+  following optimization problem</p>
+  <h4 id="section">2.2.5</h4>
+  <p><span class="math display">\[\text{max}\biggl\{M : w \in
+  \mathbb{R}^d, b \in \mathbb{R}, y_i(\langle w, x_i\rangle + b \geq M
+  ||w||, \forall i = 1,...,N\biggl\}\]</span> (The constraint ensures all
+  points are classified correctly and are at least <span class="math inline">\(M\)</span> away from the hyperplane). The value
+  <span class="math inline">\(M\)</span> is the distance of the data
+  points to the hyperplane that we want to maximize. The constraint <span class="math inline">\(y_i(\langle w, x_i \rangle + b) \geq M
+  ||w||\)</span> is, according to <a href="#Proposition 2.2.1" class="wikilink">#Proposition 2.2.1</a> equivalent to all points being
+  correctly classified and having a distance of at least <span class="math inline">\(M\)</span> from the hyperplane. Since we assume
+  that the data are linearly separable, the constraints are at least
+  satisfiable with <span class="math inline">\(M = 0\)</span>. Since the
+  constraints are scale-invariant, we can, without loss of generality, set
+  <span class="math inline">\(||w|| = \frac{1}{M}\)</span> and obtain the
+  problem <span class="math display">\[\text{max}\biggl\{\frac{1}{||w||} :
+  w \in \mathbb{R}^d, y_i (\langle w, x_i \rangle + b) \geq 1, \forall i =
+  1,...,N\biggl\}\]</span> which is usually given in the following
+  equivalent standard form (maximizing <span class="math inline">\(\frac{1}{||w||}\)</span>, is equivalent to
+  minimizing <span class="math inline">\(||w||^2\)</span>)</p>
+  <h4 id="section-1">2.2.6</h4>
+  <p><span class="math display">\[\min \biggl\{\frac{1}{2}||w||^2 : w \in
+  \mathbb{R}^d, b \in \mathbb{R}, y_i(\langle w, x_i \rangle + b) \geq 1,
+  \forall i = 1,...,N\biggl\}\]</span> (objective function <span class="math inline">\(\frac{1}{2}||w||^2\)</span> minimizes the norm of
+  <span class="math inline">\(w\)</span>, which maximizes the margin, the
+  constraints ensure that every data point is correctly classified and at
+  least distance 1 from the hyperplane) This is a quadratic optimization
+  problem with linear constraints and can be solved using classical
+  numerical optimization methods. A classifier of the form <span class="math inline">\(\hat{f}(x) = \text{sign}(\langle w, x \rangle +
+  b)\)</span>, where <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> are solutions to <a href="#2.2.6" class="wikilink">#2.2.6</a>, is called a <strong>support vector
+  machine</strong> (SVM). The reason for this is that the classifier
+  essentially depends only on the points that are closest to the
+  hyperplane <span class="math inline">\(\langle w, x \rangle +b\)</span>
+  and thus satisfy <span class="math inline">\(y_i(\langle w, x_i \rangle
+  + b) = 1\)</span> (points that lie <strong>exactly on the
+  margin</strong>), the so-called support vectors (points nearest to the
+  hyperplane). If the points <strong>that are further away</strong>,
+  i.e. <span class="math inline">\(y_i(\langle w, x_i \rangle + b)
+  \gt1\)</span>, are slightly altered, the SVM remains unchanged. So far,
+  we have assumed that the data are linearly separable, which ensures that
+  the constraints in <a href="#2.2.5" class="wikilink">#2.2.5</a> or <a href="#2.2.6" class="wikilink">#2.2.6</a> are satisfiable. In most
+  realistic applications, this assumption does not hold (there is usually
+  overlap between classes, making constraints like above impossible to
+  satisfy for all points)! Nevertheless, we would like to find a
+  hyperplane in these situations that violates the constraints for as few
+  points as possible. To do this, we introduce non-negative slack
+  variables <span class="math inline">\(\xi_i \geq 0\)</span> for <span class="math inline">\(i = 1,...,N\)</span> which measure the deviation
+  from <span class="math inline">\(y_i(\langle w, x_i \rangle +b) \geq
+  1\)</span> by replacing this constraint with <span class="math inline">\(y_i(\langle w, x_i \rangle + b) \geq 1 -
+  \xi_i\)</span>. - If <span class="math inline">\(\xi_i = 0\)</span>: The
+  point is correctly classified outside the margin - If <span class="math inline">\(0 &lt; \xi_i &lt; 1\)</span>: The point is
+  correctly classified inside the margin - If <span class="math inline">\(\xi_i \geq 1\)</span>: The point is misclassified
+  Those slack variables are introduced one for each data point and relax
+  the constraint to</p>
+  <p>At the same time, we want the slack variables to be as small as
+  possible and therefore consider the following optimization problem</p>
+  <h4 id="section-2">2.2.7</h4>
+  <p><span class="math display">\[\min \biggl\{ \frac{1}{N} \sum_{i=1}^N
+  \xi_i + \frac{\lambda}{2} ||w||^2 : w \in \mathbb{R}^d, b \in
+  \mathbb{R}, \xi_i \in \mathbb{R},\]</span> <span class="math display">\[
+  y_i(\langle w, x_i \rangle + b) \geq 1- \xi_i, \xi_i \geq 0, \forall i =
+  1,...,N \biggl\}\]</span></p>
+  <ul>
+  <li>the term <span class="math inline">\(\frac{1}{N} \sum_{i=1}^N
+  \xi_i\)</span> penalizes constraint violations - minimizing this keeps
+  most points correctly classified</li>
+  <li>the term <span class="math inline">\(\frac{\lambda}{2}||w||^2\)</span> maintains a
+  large margin - we still want to keep the margin as wide as possible</li>
+  <li>The parameter <span class="math inline">\(\lambda\)</span> controls
+  trade-off between margin-size and misclassification allowance.
+  <ul>
+  <li>Large <span class="math inline">\(\lambda\)</span> prioritizes a
+  large margin, allowing fewer misclassifications</li>
+  <li>Small <span class="math inline">\(\lambda\)</span> allows more
+  misclassifications to better fit noisy data</li>
+  </ul></li>
+  </ul>
+  <p>where <span class="math inline">\(\lambda &gt; 0\)</span> is a
+  selectable parameter. Formally, we see that in the linearly separable
+  case <a href="#2.2.7" class="wikilink">#2.2.7</a> reduces to <a href="#2.2.6" class="wikilink">#2.2.6</a> in the limit as <span class="math inline">\(\lambda \to \infty\)</span> In practice <a href="#2.2.7" class="wikilink">#2.2.7</a> has an equivalent formulation
+  as an optimization problem without constraints.</p>
+  <p>To do this, we note that we can replace the constraint <span class="math inline">\(y_i(\langle w, x_i \rangle + b) \geq 1 -
+  \xi_i\)</span> with an equality constraint. This follows from the
+  following simple argument: If the constraint is satisfied with a strict
+  inequality at the optimum, we could reduce <span class="math inline">\(\xi_i\)</span> to create an equality while also
+  reducing the objective function. Thus, we can perform the variable
+  substitution <span class="math inline">\(\xi_i := 1 - y_i(\langle w,
+  x_i\rangle +b)\)</span>. From the non-negativity condition, we finally
+  obtain <span class="math inline">\(\xi_i =\max(0, 1-y_i(\langle w, x_i
+  \rangle + b))\)</span>. This term is also called <strong>Hinge
+  Loss</strong>. Substituting this into <a href="#2.2.7" class="wikilink">#2.2.7</a> yields the equivalent problem</p>
+  <h4 id="section-3">2.2.8</h4>
+  <p><span class="math display">\[\min_{\substack{w \in \mathbb{R}^d \\ b
+  \in \mathbb{R}}}\biggl\{
+  \frac{1}{N} \sum_{i=1}^N \max(0, 1-y_i(\langle w, x_i \rangle +b))  +
+  \frac{\lambda}{2} ||w||^2
+  \biggl\}\]</span> Note that this is a convex problem in the variables
+  <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> we are looking for. Unfortunately, the
+  objective function, similar to the Perceptron loss in <a href="#2.2.3" class="wikilink">#2.2.3</a>, is not differentiable in <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> when <span class="math inline">\(y_i
+  (\langle w, x_i \rangle + b) = 1\)</span>. We again compute subgradients
+  of the function <span class="math display">\[f_i (w, b) := \max(0,
+  1-y_i(\langle w, x_i \rangle +b)) + \frac{\lambda}{2} ||w||^2\]</span>
+  with respect to the two variables <span class="math inline">\(w \in
+  \mathbb{R}^d\)</span> and <span class="math inline">\(b \in
+  \mathbb{R}\)</span>: <span class="math display">\[\partial_w f_i(w,b):=
+  -y_ix_i1_{y_i(\langle w, x_i \rangle + b) &lt; 1} + \lambda w\]</span>
+  <span class="math display">\[\partial_b f_i(w,b):= -y_i1_{y_i(\langle w,
+  x_i \rangle + b) &lt; 1}\]</span> The objective function in <a href="#2.2.8" class="wikilink">#2.2.8</a> is given by <span class="math inline">\(\frac{1}{N}\sum_{i=1}^N f_i(w, b)\)</span>, and
+  thus we can now perform a deterministic or stochastic subgradient
+  method: <span class="math display">\[\begin{cases}
+  w_{k+1} := w_k - \frac{\tau}{|\mathcal{I}|} \sum_{i\in \mathcal{I}}
+  \partial_w f_i(w_k, b_k) \\
+  b_{k+1} := b_k - \frac{\tau}{|\mathcal{I}|} \sum_{i \in \mathcal{I}}
+  \partial_b f_i (w_k, b_k)
+  \end{cases}\]</span> Here, <span class="math inline">\(\mathcal{I} =
+  \{1,..., N\}\)</span> corresponds to the deterministic case, and in the
+  stochastic case, <span class="math inline">\(\mathcal{I}\)</span> is a
+  batch of size <span class="math inline">\(B \leq N\)</span> The natural
+  question arises: how can SVMs be generalized for classification of data
+  that are not or poorly linearly separable? One conceptual approach for
+  this is so-called kernel SVMs, which replace all inner products <span class="math inline">\(\langle x, y \rangle\)</span> for <span class="math inline">\(x, y \in \mathbb{R}^d\)</span> with values of a
+  symmetric function <span class="math inline">\(k(x, y)\)</span>.
+  Addressing this is beyond the scope of this lecture.</p>
+  <p>In fact, this approach is equivalent to embedding the data points
+  <span class="math inline">\(x_i \in \mathbb{R}^d\)</span> into a
+  higher-dimensional space and thus classifying points <span class="math inline">\(\phi(x_i) \in \mathbb{R}^D\)</span>. A possible
+  embedding would be <span class="math inline">\(\phi : \mathbb{R}^d \to
+  \mathbb{R}^{2d}\)</span> with <span class="math display">\[\phi(x) :=
+  (x_1, ..., x_d, x_1^2,...,x_d^2)^T\]</span> Here, <span class="math inline">\(x_i\)</span> denotes the <span class="math inline">\(i\)</span>-th coordinate of <span class="math inline">\(x \in \mathbb{R}^d\)</span> and not the <span class="math inline">\(i\)</span>-th data point <span class="math inline">\(x_i \in \mathbb{R}^d\)</span>! A hyperplane in
+  <span class="math inline">\(\mathbb{R}^{2d}\)</span> then, in the
+  original coordinates, is expressed as: <span class="math display">\[0 =
+  b + \sum_{i=1}^d w_i x_i + \sum_{i=1}^d w_{d+1}x_i^2 = b + \langle w, x
+  \rangle + x^T Dx\]</span> with <span class="math inline">\(w = (w_1,
+  ...,w_d)^T \in \mathbb{R}^d\)</span> and <span class="math inline">\(D
+  := \text{diag}(w_{d+1}, ..., w_{2d}) \in \mathbb{R}^{d \times
+  d}\)</span>. This is a quadratic equation in <span class="math inline">\(\mathbb{R}^d\)</span> and the solutions are
+  parabolas. In a similar way, arbitrarily complex classifiers can be
+  generated in <span class="math inline">\(\mathbb{R}^d\)</span>. As
+  another example, consider the embedding <span class="math inline">\(\phi
+  : \mathbb{R}^2 \to \mathbb{R}^3\)</span> with <span class="math inline">\(\phi(x) := (x_1, x_2, x_1^2+ x_2^2)\)</span>. The
+  following hyperplane <span class="math display">\[ 0 = b + (x_1^2 +
+  x_2^2)\]</span> with <span class="math inline">\(b \leq 0\)</span> is a
+  circle equation in <span class="math inline">\(\mathbb{R}^2\)</span></p>
 <br>
 <p>Next up: <a href="/mfds/Supervised Learning/2.2.2 Neural Networks (for Classification)/2.2.2 Neural Networks (for Classification).html" class="wikilink">2.2.2 Neural Networks (for Classification)</a></p>
 </body>

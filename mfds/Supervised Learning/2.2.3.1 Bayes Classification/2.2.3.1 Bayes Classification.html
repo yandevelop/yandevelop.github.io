@@ -261,18 +261,33 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.mhchemParser=void 0;var r=fun
   \pi_c\mathbb{P}(x|K_i)} = \argmax_{c=1}^C \hspace{0.1cm}
   \pi_c\mathbb{P}(x |K_c)
   \]</span> (Since the denominator is the same for all classes, we can
-  just compute the numerator!) This means: - Compute <span class="math inline">\(\pi_c \mathbb{P}(x|K_c)\)</span> for each class -
-  Pick the class with the highest value!</p>
+  just compute the numerator!) This means:</p>
+  <ul>
+  <li>Compute <span class="math inline">\(\pi_c \mathbb{P}(x|K_c)\)</span>
+  for each class</li>
+  <li>Pick the class with the highest value!</li>
+  </ul>
   <h4 id="example-classifying-fruits">Example: Classifying fruits</h4>
   <p>Imagine we want to classify a fruit <span class="math inline">\(x\)</span> based on <strong>weight</strong> and
-  <strong>color</strong>. Suppose we have - Bananas <span class="math inline">\((K_1)\)</span>: 90% of bananas are yellow and 10%
-  are green - Apples (<span class="math inline">\(K_2)\)</span>: 50% are
-  red, 40% are green and 10% are yellow - Cherries <span class="math inline">\((K_3)\)</span>: 95% are red, 5% are yellow</p>
+  <strong>color</strong>. Suppose we have</p>
+  <ul>
+  <li>Bananas <span class="math inline">\((K_1)\)</span>: 90% of bananas
+  are yellow and 10% are green</li>
+  <li>Apples (<span class="math inline">\(K_2)\)</span>: 50% are red, 40%
+  are green and 10% are yellow</li>
+  <li>Cherries <span class="math inline">\((K_3)\)</span>: 95% are red, 5%
+  are yellow</li>
+  </ul>
   <p>If we observe <span class="math inline">\(x = (1003g, red)\)</span>,
-  the probability of observing that for each fruit is - <span class="math inline">\(\mathbb{P}(x | K_1)\)</span> (prob of a 1003g red
-  banana) is 0% –&gt; bananas are never red - <span class="math inline">\(\mathbb{P}(x|K_2)\)</span> is 50% - <span class="math inline">\(\mathbb{P}(x|K_3)\)</span> is 95% If apples and
-  cherries are equally common, we classify <span class="math inline">\(x\)</span> as a <strong>cherry</strong> since it
-  has the highest probability</p>
+  the probability of observing that for each fruit is</p>
+  <ul>
+  <li><span class="math inline">\(\mathbb{P}(x | K_1)\)</span> (prob of a
+  1003g red banana) is 0% –&gt; bananas are never red</li>
+  <li><span class="math inline">\(\mathbb{P}(x|K_2)\)</span> is 50%</li>
+  <li><span class="math inline">\(\mathbb{P}(x|K_3)\)</span> is 95% If
+  apples and cherries are equally common, we classify <span class="math inline">\(x\)</span> as a <strong>cherry</strong> since it
+  has the highest probability</li>
+  </ul>
   <h4 id="back-to-the-script">Back to the script</h4>
   <p>The mapping <span class="math inline">\(x \mapsto \argmax_{c=1}^C
   \pi_c \mathbb{P}(x|K_c)\)</span> is also called the Bayes classifier.

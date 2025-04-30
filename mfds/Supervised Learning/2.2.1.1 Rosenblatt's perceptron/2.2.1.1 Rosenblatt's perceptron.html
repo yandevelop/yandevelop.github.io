@@ -219,99 +219,105 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.mhchemParser=void 0;var r=fun
   <a href="/mfds/index.html">Home</a> &gt; <a href="/mfds/Supervised Learning/2.0 Chapter 2 - Supervised Learning.html">Supervised Learning</a> &gt; <a href="/mfds/Supervised Learning/2.2 Classification/2.2 Classification.html">Classification</a> &gt; <a href="/mfds/Supervised Learning/2.2.1 Linear Classification/2.2.1 Linear Classification.html">Linear Classification</a> &gt; Rosenblatt's perceptron
 </div>
 <header id="title-block-header">
-<h1 class="title">2.2.1.1 Rosenblatt&#39;s perceptron</h1>
-</header>
-<h4 id="rosenblatts-perceptron">Rosenblatt’s perceptron</h4>
-<p>The function <span class="math inline">\(\hat{f}\)</span> in <a href="#2.2.1" class="wikilink">#2.2.1</a> is also called the Perceptron
-and dates back to Warren McCulloch and Walter Pitts in 1943. Due to the
-discontinuity of <span class="math inline">\(\hat{f}\)</span>, gradient
-methods for determining <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> based on a least squares method are not
-possible. An alternative method was proposed by Frank Rosenblatt in
-1958. For this purpose, the perceptron loss is defined as</p>
-<h4 id="section">2.2.3</h4>
-<p><span class="math display">\[\mathcal{L}(w, b) := \frac{1}{N}
-\sum_{i=1} \text{max}(0, -y_i (\langle w, x_i \rangle + b))\]</span></p>
-<h4 id="intuition">Intuition</h4>
-<ul>
-<li>For correctly classified points (<span class="math inline">\(y_i
-(\langle w, x_i \rangle) \geq 0)\)</span>, the loss is <span class="math inline">\(0\)</span></li>
-<li>For misclassified points (<span class="math inline">\(y_i(\langle w,
-x_i \rangle) + b) &lt; 0)\)</span> the loss is <span class="math inline">\(-y_i(\langle w, x_i \rangle +b)\)</span>, which is
-proportional to the (unnormalized) distance from <span class="math inline">\(x_i\)</span> to the hyperplane. Points farther
-from the hyperplane incur large penalties</li>
-</ul>
-<h4 id="back-to-the-script">Back to the script</h4>
-<p>Note that in the case where <span class="math inline">\(\langle w,
-x_i \rangle +b\)</span> and <span class="math inline">\(y_i\)</span>
-have the same sign, the <span class="math inline">\(i\)</span>-th term
-in this sum is equal to zero. If the signs are different, the
-corresponding summand is equal to <span class="math inline">\(\langle w,
-x_i \rangle +b\)</span> and thus proportional to the distance from <span class="math inline">\(x_i\)</span> to the hyperplane.</p>
-<h4 id="explanation">Explanation:</h4>
-<p>If <span class="math inline">\(y_i\)</span> is negative (e.g. <span class="math inline">\(-1\)</span>) and <span class="math inline">\(\langle w, x_i \rangle +b\)</span> is also
-negative (e.g. <span class="math inline">\(-2\)</span>) then: <span class="math display">\[-y_i (\langle w, x_i \rangle +b) = - ( -1) \cdot
-(-2) = -2\]</span> and thus the max is <span class="math inline">\(0\)</span>! Now if the signs are different
-e.g. <span class="math inline">\(y_i\)</span> is <span class="math inline">\(1\)</span> and <span class="math inline">\(\langle
-w, x_i \rangle +b\)</span> is still <span class="math inline">\(-2\)</span> then: <span class="math display">\[-y_i (\langle w, x_i \rangle +b) = - (1) \cdot
-(-2) = 2\]</span> (which is equal to <span class="math inline">\(\langle
-w, x_i \rangle + b\)</span> and thus proportial to the distance from
-<span class="math inline">\(x_i\)</span> to the hyperplane)</p>
-<h4 id="back-to-the-script-1">Back to the script</h4>
-<p>Therefore, misclassified points <span class="math inline">\(x_i\)</span> that are further away from the
-hyperplane are penalized more heavily than those that are close. We note
-that <a href="#2.2.3" class="wikilink">#2.2.3</a> is a convex function
-in the sought variables <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span>. Unfortunately is is not differentiable
-in <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> at <span class="math inline">\(y_i(\langle w, x_i \rangle + b) = 0\)</span>.
-However, we still calculate the derivative of the function <span class="math display">\[f_i(w, b) := \text{max}(0, -y_i (\langle w, x_i
-\rangle) + b)\]</span> with respect to the two variables <span class="math inline">\(w \in \mathbb{R}^d\)</span> and <span class="math inline">\(b \in \mathbb{R}\)</span> and ignore the fact that
-the maximum function is not differentiable. At such points, we set the
-derivative to the value <span class="math inline">\(0\)</span>. The
-resulting derivative is called a <em>subgradient</em> of <span class="math inline">\(f_i\)</span>, and is given by <span class="math display">\[\partial_w f_i(w, b) := -y_i x_i 1_{y_i(\langle
-w, x_i \rangle + b) &lt; 0}\]</span> <span class="math display">\[\partial_b f_i(w, b) := -y_i 1_{y_i(\langle w,
-x_i \rangle + b) &lt; 0}\]</span> How are those computed?</p>
-<h4 id="explanation-1">Explanation</h4>
-<h5 id="case-analysis-for-gradients">Case Analysis for Gradients</h5>
-<p>The loss has two cases depending on whether the point is
-<strong>correctly classified</strong> or <strong>misclassified</strong>
-<strong>Case 1: correctly classified</strong>: If <span class="math inline">\(y_i (\langle w, x_i \rangle + b) \geq 0\)</span> -
-The term inside <span class="math inline">\(\text{max}(0, -y_i(\langle
-w, x_i \rangle + b))\)</span> is <span class="math inline">\(\leq
-0\)</span> (because of the negative sign in front of the <span class="math inline">\(y_i\)</span>), so <span class="math inline">\(f_i(w, b) = 0\)</span> -
-<strong>Gradients</strong>: Since the loss is a constant (0), the
-gradients are <span class="math display">\[\partial_w f_i(w, b) = 0,
-\hspace{0.3cm} \partial_b f_i(w, b) = 0\]</span> <strong>Case 2:
-Misclassified</strong> If <span class="math inline">\(y_i(\langle w, x_i
-\rangle + b) &lt; 0\)</span>: - The term inside <span class="math inline">\(\text{max}(0, -y_i(\langle w, x_i \rangle +
-b))\)</span> is <span class="math inline">\(\gt 0\)</span> (because of
-the negative sign in front of the <span class="math inline">\(y_i\)</span>), so <span class="math inline">\(f_i(w, b) = -y_i(\langle w, x_i \rangle
-+b)\)</span> - <strong>Gradients</strong>: The loss is linear in <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span>, so we differentiate - With respect to
-<span class="math inline">\(w\)</span> <span class="math display">\[\partial_w f_i(w, b) = \partial_w (-y_i(\langle
-w, x_i \rangle + b)) = -y_i x_i\]</span> - With respect to <span class="math inline">\(b\)</span> <span class="math display">\[\partial_b
-f_i (w, b) = \partial_b(-y_i(\langle w, x_i \rangle) + b) =
--y_i\]</span> Now combining the cases and using the indicator function
-<span class="math inline">\(1\)</span>: <span class="math display">\[\partial_w f_i(w, b) = -y_ix_i \cdot
-1_{y_i(\langle w, x_i \rangle + b) &lt; 0}\]</span> <span class="math display">\[\partial_w f_i(w, b) = -y_i \cdot 1_{y_i(\langle
-w, x_i \rangle + b) &lt; 0}\]</span></p>
-<h4 id="back-to-the-script-2">Back to the script</h4>
-<p>Rosenblatt’s algorithm is now a stochastic subgradient method with
-step size <span class="math inline">\(\tau &gt; 0\)</span> and batch
-size <span class="math inline">\(B \in \{1,...,N\}\)</span> applied to
-<span class="math inline">\(L(w, b)\)</span>:</p>
-<p><span class="math display">\[\begin{cases}
-\text{Initialize }w_0 \in \mathbb{R}^d, b_0 \in \mathbb{R} \\
-\text{For } k \in \mathbb{N} \text{ iterate:} \\
-\text{Choose a random B-element subset } \mathcal{I} \subset
-\{1,...,N\}, \\
-\text{Define }\mathcal{M}:= \{i \in \mathcal{I} : y_i(\langle w, x_i
-\rangle +b) &lt; 0\} (\text{misclassified points)}, \\
-w_k := w_{k-1} + \frac{\tau}{B}\sum_{i\in \mathcal{M}}y_ix_i, \\
-b_k := b_{k-1} + \frac{\tau}{B}\sum_{i \in \mathcal{M}}y_i
-\end{cases}\]</span> The main problem with Rosenblatts algorithm is that
-we have no control over which hyperplane it converges to. In the case
-that the data are linearly separable, i.e. there exist <span class="math inline">\(w \in \mathbb{R}^d\)</span> and <span class="math inline">\(b \in \mathbb{R}\)</span> such that <span class="math inline">\(y_i(\langle w, x_i \rangle + b) \geq 0\)</span>
-for all <span class="math inline">\(i = 1,...,N\)</span>, every
-hyperplane of this form is a fixed point of the algorithm (the algorithm
-stops updating once all points are correctly classified!)</p>
+  <h1 class="title">2.2.1.1 Rosenblatt&#39;s perceptron</h1>
+  </header>
+  <h4 id="rosenblatts-perceptron">Rosenblatt’s perceptron</h4>
+  <p>The function <span class="math inline">\(\hat{f}\)</span> in <a href="#2.2.1" class="wikilink">#2.2.1</a> is also called the Perceptron
+  and dates back to Warren McCulloch and Walter Pitts in 1943. Due to the
+  discontinuity of <span class="math inline">\(\hat{f}\)</span>, gradient
+  methods for determining <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> based on a least squares method are not
+  possible. An alternative method was proposed by Frank Rosenblatt in
+  1958. For this purpose, the perceptron loss is defined as</p>
+  <h4 id="section">2.2.3</h4>
+  <p><span class="math display">\[\mathcal{L}(w, b) := \frac{1}{N}
+  \sum_{i=1} \text{max}(0, -y_i (\langle w, x_i \rangle + b))\]</span></p>
+  <h4 id="intuition">Intuition</h4>
+  <ul>
+  <li>For correctly classified points (<span class="math inline">\(y_i
+  (\langle w, x_i \rangle) \geq 0)\)</span>, the loss is <span class="math inline">\(0\)</span></li>
+  <li>For misclassified points (<span class="math inline">\(y_i(\langle w,
+  x_i \rangle) + b) &lt; 0)\)</span> the loss is <span class="math inline">\(-y_i(\langle w, x_i \rangle +b)\)</span>, which is
+  proportional to the (unnormalized) distance from <span class="math inline">\(x_i\)</span> to the hyperplane. Points farther
+  from the hyperplane incur large penalties</li>
+  </ul>
+  <h4 id="back-to-the-script">Back to the script</h4>
+  <p>Note that in the case where <span class="math inline">\(\langle w,
+  x_i \rangle +b\)</span> and <span class="math inline">\(y_i\)</span>
+  have the same sign, the <span class="math inline">\(i\)</span>-th term
+  in this sum is equal to zero. If the signs are different, the
+  corresponding summand is equal to <span class="math inline">\(\langle w,
+  x_i \rangle +b\)</span> and thus proportional to the distance from <span class="math inline">\(x_i\)</span> to the hyperplane.</p>
+  <h4 id="explanation">Explanation:</h4>
+  <p>If <span class="math inline">\(y_i\)</span> is negative (e.g. <span class="math inline">\(-1\)</span>) and <span class="math inline">\(\langle w, x_i \rangle +b\)</span> is also
+  negative (e.g. <span class="math inline">\(-2\)</span>) then: <span class="math display">\[-y_i (\langle w, x_i \rangle +b) = - ( -1) \cdot
+  (-2) = -2\]</span> and thus the max is <span class="math inline">\(0\)</span>! Now if the signs are different
+  e.g. <span class="math inline">\(y_i\)</span> is <span class="math inline">\(1\)</span> and <span class="math inline">\(\langle
+  w, x_i \rangle +b\)</span> is still <span class="math inline">\(-2\)</span> then: <span class="math display">\[-y_i (\langle w, x_i \rangle +b) = - (1) \cdot
+  (-2) = 2\]</span> (which is equal to <span class="math inline">\(\langle
+  w, x_i \rangle + b\)</span> and thus proportial to the distance from
+  <span class="math inline">\(x_i\)</span> to the hyperplane)</p>
+  <h4 id="back-to-the-script-1">Back to the script</h4>
+  <p>Therefore, misclassified points <span class="math inline">\(x_i\)</span> that are further away from the
+  hyperplane are penalized more heavily than those that are close. We note
+  that <a href="#2.2.3" class="wikilink">#2.2.3</a> is a convex function
+  in the sought variables <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span>. Unfortunately is is not differentiable
+  in <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span> at <span class="math inline">\(y_i(\langle w, x_i \rangle + b) = 0\)</span>.
+  However, we still calculate the derivative of the function <span class="math display">\[f_i(w, b) := \text{max}(0, -y_i (\langle w, x_i
+  \rangle) + b)\]</span> with respect to the two variables <span class="math inline">\(w \in \mathbb{R}^d\)</span> and <span class="math inline">\(b \in \mathbb{R}\)</span> and ignore the fact that
+  the maximum function is not differentiable. At such points, we set the
+  derivative to the value <span class="math inline">\(0\)</span>. The
+  resulting derivative is called a <em>subgradient</em> of <span class="math inline">\(f_i\)</span>, and is given by <span class="math display">\[\partial_w f_i(w, b) := -y_i x_i 1_{y_i(\langle
+  w, x_i \rangle + b) &lt; 0}\]</span> <span class="math display">\[\partial_b f_i(w, b) := -y_i 1_{y_i(\langle w,
+  x_i \rangle + b) &lt; 0}\]</span> How are those computed?</p>
+  <h4 id="explanation-1">Explanation</h4>
+  <h5 id="case-analysis-for-gradients">Case Analysis for Gradients</h5>
+  <p>The loss has two cases depending on whether the point is
+  <strong>correctly classified</strong> or <strong>misclassified</strong>
+  <strong>Case 1: correctly classified</strong>: If <span class="math inline">\(y_i (\langle w, x_i \rangle + b) \geq 0\)</span> -
+  The term inside <span class="math inline">\(\text{max}(0, -y_i(\langle
+  w, x_i \rangle + b))\)</span> is <span class="math inline">\(\leq
+  0\)</span> (because of the negative sign in front of the <span class="math inline">\(y_i\)</span>), so <span class="math inline">\(f_i(w, b) = 0\)</span> -
+  <strong>Gradients</strong>: Since the loss is a constant (0), the
+  gradients are <span class="math display">\[\partial_w f_i(w, b) = 0,
+  \hspace{0.3cm} \partial_b f_i(w, b) = 0\]</span> <strong>Case 2:
+  Misclassified</strong> If <span class="math inline">\(y_i(\langle w, x_i
+  \rangle + b) &lt; 0\)</span>:</p>
+  <ul>
+  <li>The term inside <span class="math inline">\(\text{max}(0,
+  -y_i(\langle w, x_i \rangle + b))\)</span> is <span class="math inline">\(\gt 0\)</span> (because of the negative sign in
+  front of the <span class="math inline">\(y_i\)</span>), so <span class="math inline">\(f_i(w, b) = -y_i(\langle w, x_i \rangle
+  +b)\)</span></li>
+  <li><strong>Gradients</strong>: The loss is linear in <span class="math inline">\(w\)</span> and <span class="math inline">\(b\)</span>, so we differentiate
+  <ul>
+  <li>With respect to <span class="math inline">\(w\)</span> <span class="math display">\[\partial_w f_i(w, b) = \partial_w (-y_i(\langle
+  w, x_i \rangle + b)) = -y_i x_i\]</span></li>
+  <li>With respect to <span class="math inline">\(b\)</span> <span class="math display">\[\partial_b f_i (w, b) = \partial_b(-y_i(\langle
+  w, x_i \rangle) + b) = -y_i\]</span> Now combining the cases and using
+  the indicator function <span class="math inline">\(1\)</span>: <span class="math display">\[\partial_w f_i(w, b) = -y_ix_i \cdot
+  1_{y_i(\langle w, x_i \rangle + b) &lt; 0}\]</span> <span class="math display">\[\partial_w f_i(w, b) = -y_i \cdot 1_{y_i(\langle
+  w, x_i \rangle + b) &lt; 0}\]</span></li>
+  </ul></li>
+  </ul>
+  <h4 id="back-to-the-script-2">Back to the script</h4>
+  <p>Rosenblatt’s algorithm is now a stochastic subgradient method with
+  step size <span class="math inline">\(\tau &gt; 0\)</span> and batch
+  size <span class="math inline">\(B \in \{1,...,N\}\)</span> applied to
+  <span class="math inline">\(L(w, b)\)</span>:</p>
+  <p><span class="math display">\[\begin{cases}
+  \text{Initialize }w_0 \in \mathbb{R}^d, b_0 \in \mathbb{R} \\
+  \text{For } k \in \mathbb{N} \text{ iterate:} \\
+  \text{Choose a random B-element subset } \mathcal{I} \subset
+  \{1,...,N\}, \\
+  \text{Define }\mathcal{M}:= \{i \in \mathcal{I} : y_i(\langle w, x_i
+  \rangle +b) &lt; 0\} (\text{misclassified points)}, \\
+  w_k := w_{k-1} + \frac{\tau}{B}\sum_{i\in \mathcal{M}}y_ix_i, \\
+  b_k := b_{k-1} + \frac{\tau}{B}\sum_{i \in \mathcal{M}}y_i
+  \end{cases}\]</span> The main problem with Rosenblatts algorithm is that
+  we have no control over which hyperplane it converges to. In the case
+  that the data are linearly separable, i.e. there exist <span class="math inline">\(w \in \mathbb{R}^d\)</span> and <span class="math inline">\(b \in \mathbb{R}\)</span> such that <span class="math inline">\(y_i(\langle w, x_i \rangle + b) \geq 0\)</span>
+  for all <span class="math inline">\(i = 1,...,N\)</span>, every
+  hyperplane of this form is a fixed point of the algorithm (the algorithm
+  stops updating once all points are correctly classified!)</p>
 <br>
 <p>Next up: <a href="/mfds/Supervised Learning/2.2.1.2 Support Vector Machines/2.2.1.2 Support Vector Machines.html" class="wikilink">2.2.1.2 Support Vector Machines</a></p>
 </body>
